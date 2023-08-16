@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-一个重要的内置关系</title>
+    <script src='../js/vue.js'></script>
+</head>
+<body>
+
+    <!-- 
+         1.一个重要的内置关系: VueComponent.prototype.__proto__ === Vue.prototype
+         2.为什么要有这个关系: 让组件实例对象(vc)可以访问到Vue原型上的方法,属性
+     -->
+    <div id="app">
+        <!-- 使用组件 -->
+        <school></school>
+    </div>
+    <script type='text/javascript'>
+        //解决生产环境下的警告提示！！
+        Vue.config.productionTip = false;
+
+        //第一步: 创建组件school
+        const school = Vue.extend({
+            name: "atguigu",
+            template: 
+            `
+             <div>
+                <h2>学校名称:{{schoolName}}</h2>
+                 <h2>学校地址:{{schoolAddress}}</h2>
+            </div>
+            `,
+            data() {
+                return {
+                    schoolName: "尚硅谷",
+                    schoolAddress: "北京昌平"
+                }
+            },
+        });
+        const vm = new Vue({
+            el: "#app",
+            //第二步 : 注册组件(局部注册)
+           components:{school}
+        });
+    </script>
+    
+</body>
+</html>

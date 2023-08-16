@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_async函数和await函数结合ajax请求</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 封装ajax请求
+        function sendAJAX(url) {
+            return new Promise((reslove, reject) => {
+                //创建对象
+                let xml = new XMLHttpRequest();
+                // /初始化
+                xml.open('GET', url);
+                // 发送请求
+                xml.send();
+                //处理事件
+                xml.onreadystatechange = function () {
+                    if (xml.readyState === 4) {
+                        if (xml.status >= 200 && xml / status < 300) {
+                            //成功-输出响应结果
+                            reslove(xml.response);
+                        } else {
+                            //失败，返回失败的状态码
+                            reject(xml.status);
+                        };
+
+                    };
+                };
+            });
+
+        };
+
+        //测试 promise的then测试
+        // sendAJAX("http://api.tianapi.com/networkhot/index?key=a1b6cc134ecf125442788782b098a47f").then(value=>{
+        //     console.log(value.toString());
+        // },reason=>{});
+
+        //使用async函数
+        async function main(){
+
+            // 发送ajax请求
+          let response = await sendAJAX("http://api.tianapi.com/esports/index?key=a1b6cc134ecf125442788782b098a47f");
+
+          console.log(respone);
+        };
+        main();
+    </script>
+
+</body>
+
+</html>

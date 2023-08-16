@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: green;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #btn {
+            /* 设置文字居中 */
+            text-align: center;
+            /* 设置宽度 */
+            width: 500px;
+            /* 设置内容居中 */
+            margin: 100px auto;
+            /* 设置边框 */
+            padding: 10px;
+            /* 设置背景颜色 */
+            background-color: orange;
+        }
+    </style>
+    <script>
+        //设置js代码优先加载
+        window.onload = function () {
+            // 获取两个按钮
+            var s = document.getElementById("s");
+            var n = document.getElementById("n");
+
+            //获取img标签
+            var img = document.getElementsByTagName("img")[0];
+
+            //创建一个数组,用于保存图片
+            var imgArr = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+
+            //设置index数组索引
+            var index = 0;
+            //获取id为info,并设置标题
+            var info = document.getElementById("info");
+            info.innerHTML = "一共"+imgArr.length+"张图片,现在是第"+(index+1)+"张";
+            //document.getElementById("info").innerHTML = "一共"+imgArr.length+"张图片,现在是第"+(index+1)+"张";
+            
+            // 设置上一张
+            s.onclick = function () {
+                index --;
+                //,并且健壮性判断,不符合则到达图片底部
+                if(index < 0){
+                    index = imgArr.length -1;
+                }
+                //修改文字
+                img.src = imgArr[index];
+                //
+                info.innerHTML = "一共"+imgArr.length+"张图片,现在是第"+(index+1)+"张";
+            
+            };
+            // 设置下一张
+            n.onclick = function () {
+
+                index ++;
+                //健壮性判断,如果已经是最后一张，则直接切换到第一张
+                if(index>imgArr.length -1){
+                    index = 0;
+                }
+                //修改标签文字
+                img.src = imgArr[index];
+                info.innerHTML = "一共"+imgArr.length+"张图片,现在是第"+(index+1)+"张";
+            };
+
+        };
+
+    </script>
+</head>
+
+<body>
+    <div id="btn">
+        <p id="info"></p>
+        <img src="img/1.jpg" alt="冰棍">
+        <button id="s">上一张</button>
+        <button id="n">下一张</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.v-text指令</title>
+    <script src='../js/vue.js'></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+        v-cloak指令(没有值):
+           1.本质是一个特殊属性,Vue实例创建完毕并接管容器后,会删除v-cloak属性
+           2.使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题
+     -->
+    <!-- 准备一个容器 -->
+    <div id="app">
+        <h2 v-cloak>{{mag}}</h2>
+    </div>
+    <script type='text/javascript'>
+        //解决生产环境下的警告提示
+       Vue.config.productionTip = false;
+       const vm = new Vue({
+           el: "#app",
+           data() {
+               return {
+                   mag: "尚硅谷",
+               }
+           },
+       });
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class属性</title>
+    <style >
+        #text1{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+       h5中对class的新增功能:
+        classList集合
+        contenteditable
+
+     -->
+    <div>
+         <p id="test" class="s1 s2 s3 s4"></p>
+    </div>
+    <div id="text1" contenteditable="true">
+         skcsmkmlmvdlwd
+    </div>
+<script type="text/javascript">
+    var  textNodes = document.querySelector("#test");
+    console.log(textNodes.className);
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+          /**
+           * 数据类型指定的就是字面量的类型
+           * 在js中一共用六种数据类型:
+           *       String  字符串
+           *       Number   数值
+           *       Boolean  布尔值
+           *       Null     空值
+           *       undefined  未定义
+           *       Object       对象
+           * 
+           *   \"  表示 "
+           *   \'  表示 '
+           *   \n   表示 换行
+           *   \t  表示  制表符
+           *   \\  表示 \
+           * 
+           * 
+           * 
+           * 其中 String Number Boolean  Null Undfined 是基本数据类型
+           * 而 Object 是引用数据类型
+           * */
+        // 1.String 字符串： 在js中字符串需要使用双引号或者单引号引起来，且引号之间不能嵌套
+        var str = 'hello';
+        var str1 = "world";
+        console.log(str+str1);
+        console.log("heoo");
+        console.log(typeof(str));
+
+        //2. Number 数值： 在js中所有的数值都是Number类型，包括整数和浮点数
+        //typeof 来检查数据的类型
+        //MAX_VALUE 表示的最大值  MIN_VALUE 表示最小值  Infinity 表示 正无穷
+        // Nan 表示 一个特殊字符，not 啊number
+        // 在js中整数的运算基本可以保证精确，但浮点数，可能会得到一个不精确的结果
+        //所以千万不要使用js进行钱，和一些要求较高的进行计算
+        var n = 123;
+        var m = "456";
+        console.log(typeof n);
+        console.log(typeof m);
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        console.log( Number.MAX_VALUE * Number.MAX_VALUE);
+        console.log( typeof Infinity);
+        console.log(typeof NaN);
+
+        //3.Boolean 布尔值: 布尔值只有两个，主要用来做逻辑判断 true --表示真   false --表示假
+        var bool = true;
+        console.log(bool);
+        console.log(typeof bool);
+        console.log(!bool);
+
+        //4. null 类型的值只有一个 就是Null,专门表示一个空的对象且类型为Object
+        //5. undefined的类型的值只有一个,就是undefined,当声明一个变量但不赋值时，他就是undefined
+        var n = null;
+        console.log(n);
+        console.log(typeof n);
+        var a;
+        console.log(a);
+        console.log(typeof a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

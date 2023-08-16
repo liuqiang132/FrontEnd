@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+ 1、undefined和null的区别？
+
+  <1>undefined 是定义了而未赋值
+  <2>null是定义了变量，而赋值为null而已......
+
+
+
+ 2.什么时候变量赋值为null呢？
+
+ 初始时. 表明该对象将要被赋值为对象
+ 结束时.让对象成为垃圾对象（从而被垃圾回收器回收）
+
+
+
+ 3.严格区分变量类型和数据类型？
+
+   <1>数据类型：
+     基本类型
+     对象类型
+
+   <2>变量类型（变量内存值的类型）：
+    基本类型: 保存的是基本数据类型的数据
+    引用类型: 保存的是对象的地址值
+
+
+
+
+
+ -->
+<script type="text/javascript">
+
+    function person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    //实例化对象
+    var per = new person("Person", 26);
+    console.log(per);
+    // 1、undefined和null的区别？
+    var a;
+    console.log(a); //值为undefined
+    a = null;
+    console.log(a); //值为null
+
+
+
+
+
+</script>
+
+</body>
+</html>

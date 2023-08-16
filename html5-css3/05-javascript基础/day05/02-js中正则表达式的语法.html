@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 使用字面量来创建正则表达式 语法: var 变量 = /正则表达式/匹配模式
+         * 
+         * 
+         * 
+         * */
+        //1.使用字面量创建正则表达式
+        var reg = /a/i;
+        console.log(reg.test("a"));
+
+        //2.创建一个正则表达式，检查一个字符串中是否有a 或者b ,使用 | 表示或者的意思
+        var re = /a|b|c/;
+        console.log(re.test("bcd"));
+        //3.创建一个正则表达式来检查一个字符串中是否有字母，[]里的内容也是或的关系[ab] == a|b
+        // re = /a|b|c|d|e|f/;
+        re = /[a-z]/;//任意的小写字母
+        re = /[A-Z]/; //任意的大写字母
+        re = /[0-9]/; //表示任意的数字
+        console.log(re.test("abcd"));
+
+        //4.检查一个字符串中是否含有abc 或adc 或 aec
+        re = /a[bde]c/;
+        console.log(re.test("aec"));
+        //5.[^abc] 表示除了abc其中的任何一个都可以
+        re = /[^abc]/;
+        console.log(re.test("a"));
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

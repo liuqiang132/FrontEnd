@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //声明一个集合
+        let s1 = new Set();
+        let s2 = new Set(['徐飞飞','浮点','解鲁瑶','凌玉洁','周奇奇']);
+
+        //set集合的基本操作
+        //统计集合的个数
+        console.log(s2.size);
+
+        //向集合中添加元素
+        s2.add("刘强");
+        // //删除集合中的元素
+        // s2.delete("徐飞飞");
+
+        // //检测集合中是否有该元素
+        // s2.has("刘强");
+
+        // //清空集合数据
+        // s2.clear();
+
+        //遍历集合
+        for (const v of s2) {
+            console.log(v);
+        }
+        
+    </script>
+    
+</body>
+</html>

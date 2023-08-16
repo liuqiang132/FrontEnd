@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1.变量声明提升:
+   * 通过var定义（声明）的变量，在定义语句之前就可以访问到
+   * 值： undefined
+2.函数声明提升：
+   * 通过function声明的函数，在之前就可以直接调用
+   * 值: 函数定义（对象）
+3.问题: 变量提升和函数提升是如何产生的?
+
+
+ -->
+<script type="text/javascript">
+
+    //变量提升
+    var a = 3;
+    function func() {
+        console.log(a);  //undefined
+        var a = 4;
+
+    }
+    func();
+
+
+    //函数提升
+    func1(); //可以调用,函数提升
+    func2(); //不可以调用,此时为变量提升
+    function func1() { //声明方式
+        console.log(Number.MAX_VALUE);
+    }
+    var func2 = function() { // 表达式方式
+        console.log(Number.MAX_VALUE);
+
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

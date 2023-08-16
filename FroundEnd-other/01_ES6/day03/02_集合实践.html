@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+             let arr = [1,2,3,4,4,5,2,3,4,5,6,7,1,2];
+
+             //1.数组去重
+            //  let result = [...new Set(arr)];
+            //  console.log(result);
+
+
+             //2.交集
+            //  let arr2 = [4,5,4,5,6];
+            //  let result = [...new Set(arr)].filter(item=>{
+            //      let s2 = new Set(arr2);
+            //      if(s2.has(item)){
+            //          return true;
+            //      }else{
+            //         return false;
+            //      };
+            //  });
+            //  console.log(result);
+
+             //简化写法
+             let arr2 = [4,5,4,5,6,44,55,26];
+             let result = [...new Set(arr)].filter(item=>new Set(arr2).has(item));
+             console.log("交集:"+result);
+
+             //3.并集
+             //let arrs = [...new Set(arr)].concat(arr2);
+             let arrs =[...new Set([...arr,...arr2])];
+             console.log("并集:"+arrs);
+             //4.差集
+             let results = [...new Set(arr)].filter(item=>!(new Set(arr2).has(item)));
+             console.log("差集:"+results);
+    </script>
+    
+</body>
+</html>

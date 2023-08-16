@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax请求重复发送问题</title>
+</head>
+<body>
+<button>发送ajax请求</button>
+<script type="text/javascript">
+    let btn = document.getElementsByTagName("button")[0];
+    let xml = null;
+    //是否正在发送ajax请求
+    let isSending = false;
+
+    btn.onclick = function () {
+        //如果正在发送请求则取消该请求,创建一个新的请求
+        if (isSending) xml.abort();
+        xml  = new XMLHttpRequest();
+        isSending = true;
+        xml.open("GET","http://localhost:8848/server/cf");
+        xml.send();
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4){
+            //当这个请求发送完成后，修改状态
+                isSending = false;
+            }
+        }
+
+
+    };
+
+</script>
+</body>
+</html>

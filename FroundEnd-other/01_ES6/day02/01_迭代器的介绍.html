@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+       /**
+        *  迭代器是一种接口,为各种不同的数据结构提供统一的访问机制，任何数据结构只要部署iterator 接口,就可以完成遍历操作
+        * 
+        * ES6 创造了一种新的遍历命令for....of循环,iterator接口主要供for....of消费，原生具备iterator接口的数据(可用for of遍历)
+        * 
+        *  1. Array    Arauments    Set  Map  string  TypedArray  NodeList
+        * 
+        * 
+        * 
+        * 
+        * 
+        * 
+        * 
+        * 
+        * */
+       //数组
+       const array = ['唐僧','孙悟空','猪八戒','沙僧'];
+       //使用for...of遍历数组
+       for (const iterator of array) {
+           console.log(iterator);
+       }
+       
+       console.log(array);
+
+
+      let iterator = array[Symbol.iterator]();
+      console.log(iterator);
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

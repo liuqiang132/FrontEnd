@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+ 问题: 在JS中调用函数时传递变量参数时,是值传递还是引用传递呢？
+     * 理解1： 都是值(基本/地址值)传递
+     * 理解2: 可能是值传递，也可能是引用传递(地址值)
+
+
+-->
+<script type="text/javascript">
+    var a = 3;
+    function fun(a) {
+     a = a +1;
+    }
+    fun(a);
+    console.log(a);
+
+
+</script>
+
+</body>
+</html>

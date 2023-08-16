@@ -1,0 +1,1 @@
+通过write向文件中写入通过write向文件中写入通过write向文件中写入通过write向文件中写入

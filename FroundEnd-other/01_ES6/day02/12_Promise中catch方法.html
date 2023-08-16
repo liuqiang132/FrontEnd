@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        let p = new Promise((reslove, reject) => {
+
+            setTimeout(() => {
+                //封装失败的回调函数
+                reject("出错啦!");
+            }, 3000);
+        });
+        //使用then指定回调函数
+        p.then(function (value) { }, function (reason) {
+            console.warn(reason);
+        });
+        //使用catch
+        p.catch(function (reason) {
+
+            console.error(reason);
+        });
+    </script>
+
+</body>
+
+</html>

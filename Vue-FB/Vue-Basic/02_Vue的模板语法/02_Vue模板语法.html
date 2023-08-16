@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-vue模板语法</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        1.差值语法:
+               功能: 用于解析标签体内容
+               写法: {{xxx}},xxx是js表达式,且可以直接读取到data中的所有属性
+        2.指令语法:
+               功能: 用于解析标签(包括: 标签属性,标签体内容,绑定事件.......)
+               举例: v-bind:href="xxx" 或者 接写为 :href="xxx",xxx同样要写成js表达式，且可以直接读取到data中的所有属性
+               备注: Vue中有很多的指令,且形式都是v-??? 此处我们只是拿v-bind举例子
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="app">
+        <h1>插值语法</h1>
+        <h3>{{message}}</h3>
+        <hr/>
+        <h1>指令语法</h1>
+        <a v-bind:href="url">点我去尚硅谷学习1</a>
+        <!-- v-bind的简写形式 -->
+        <a :href="url">点我去尚硅谷学习2</a> 
+    </div>
+    <script type="text/javascript">
+
+        // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    message: "你好! Jack",
+                    url:"http://www.atguigu.com"
+                }
+            },
+        });
+    </script>
+    
+</body>
+</html>

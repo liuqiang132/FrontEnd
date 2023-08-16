@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //声明一个map
+        let map = new Map();
+
+        //添加元素
+        map.set("name","liuqiang132");
+        console.log(map.size);
+
+         console.log(map);
+
+        let key = {
+            name: "帅哥哥"
+        };
+        let map2 = new Map();
+        map2.set(key,['西安','上海','北京','西宁']);
+        for (const map of map2) {
+            console.log(map2.get(map));
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

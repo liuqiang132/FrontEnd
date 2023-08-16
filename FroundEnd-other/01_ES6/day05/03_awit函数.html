@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>awit函数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /**
+         * async和await两种语法结合可以让异步diamante像同步代码一样
+         * 
+         * 
+         * async函数的返回值为promise对象
+         * promise对象的结果由async函数执行的返回值决定
+         * 
+         * 
+         * 
+         * 
+         * await表达式
+         * 
+         *  1.await必须写在async函数中
+         *  2.await右侧的表达式一般为Promise对象
+         *  3.await返回的是Promise成功的值
+         *  4.await的promise失败了，就会抛出异常，需要通过try....catch捕获处理
+         * */
+
+        //创建promise对象
+        const p = new Promise((reslove, reject) => {
+
+            // 成功了,
+            // reslove("成功了!");
+            reject("出错了！！！");
+
+        });
+
+
+        //await
+        async function fun() {
+
+            //成功时的结果返回值
+            //此时reslut返回的结果就是Promise对象执行完毕后的结果
+            //  let reslut = await p;
+            //  console.log(reslut);
+
+
+
+
+            //如果promise执行结果失败则需要try...catch进行异常捕获
+            try {
+                let reslut = await p;
+                console.log(reslut);
+            } catch (error) {
+                console.log(error);
+
+            };
+        };
+
+        fun();
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

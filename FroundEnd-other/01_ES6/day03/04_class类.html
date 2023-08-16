@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // ES5---对象实例化的方法
+        // function Phone(name,price){
+
+        //     this.name = name;
+        //     this.price = price;
+        // }
+        // //添加方法
+        // Phone.prototype.call = function(){
+        //     console.log("我可以打电话");
+        // }
+        // // 实例化对象
+        // let huawei = new Phone("华为",5999);
+        // huawei.call();
+        // console.log(huawei);
+
+        //ES6--类
+        class Phone{
+            //构造函数
+            constructor(name,price){
+                this.name = name;
+                this.price = price;
+            }
+            call(){
+                console.log("我可以打电话");
+            }
+        };
+        //实例化对象
+        let iphone = new Phone("苹果XR",6199);
+        console.log(iphone.name);
+        console.log(iphone.price);
+        iphone.call();
+
+        
+    </script>  
+</body>
+</html>

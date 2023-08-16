@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+    <style>
+        .box1{
+            width: 800px;
+            height: 200px;
+            border: 10px orange solid;
+            /* 
+             元素的水平方向的布局: 
+                   元素在其父元素中水平方向的位置右以下几个属性共同决定的：
+                         margin-left
+                         broder-left
+                         padding-left
+                         width
+                         padding-right
+                         broder-right
+                         margin-right
+
+                     一个元素在其父元素中，水平布局必须满足以下的等式：
+            margin-left+ broder-left+padding-left+width+padding-right+broder-left-margin-right = 其父元素内容区的宽度(必须满足)
+            0 + 0 + 0 + 200 + 0 + 0 +0 = 800
+            0 + 0 + 0 + 200 + 0 + 0 +600 = 800
+
+           100 + 0 + 0 + 200 + 0 + 0 +400 = 800
+           100 + 0 + 0 + 200 + 0 + 0 500 = 800
+                - 以上等式必须满足，如果相加结果使等式不成立，则称为过渡约束，则等式会自动调整
+                - 调整的情况: 
+                      - 如果这七个值中没有auto的情况，则浏览器会自动调整margin-right的值以使等式成立
+
+                - 这七个值中设置成为auto: 
+                       wifth
+                       margin-left
+                       margin-right
+                    - 如果某个值为auto,则会自动调整为auto的那个值，以使等式满足
+
+
+                - 如果将一个宽度和一个外边距设置为auto,则宽度会调整到最大
+                - 如果将三个值都设置为auto,则外边距都是0，宽度最大
+                - 如果将两个外边距设置为auto,宽度固定值，则会将外边距设置为相同的值
+            
+            */
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin: 0 auto;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
+
+    
+</body>
+</html>

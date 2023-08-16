@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-基本列表</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        v-for指令:
+             1.用于展示列表数据
+             2.语法: v-for="(item, index) in items " :key=‘index’
+             3.可以遍历: 数组,对象,字符串(用的很少),指定次数(用的很少)
+     -->
+
+    <!-- 准备一个容器 -->
+    <div id="app">
+
+        <!-- 一.遍历数组 -->
+        <!-- 创建一个列表用来展示人的信息 -->
+        <h2>人员列表</h2>
+        <ul v-for="(person, index) in PersonArr" :key="index" >
+            <li>{{person.id}}-{{person.names}}-{{person.address}}---{{index}}</li>
+        </ul>
+
+
+        <!-- 遍历对象 -->
+        <!-- 汽车信息 -->
+        <h2>汽车信息</h2>
+        <ul v-for="(car, index) in car" :key="index" >
+            <li>{{car}}--{{index}}</li>
+        </ul>
+
+
+
+        <!-- 遍历指定次数 -->
+        <h2>遍历指定次数</h2>
+        <ul v-for="(a, b) in  6" :key="b" >
+            <li>{{a}}--{{b}}</li>
+        </ul>
+
+
+
+    </div>
+    <script type="text/javascript">
+
+         // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+        const  vm  = new Vue({
+            el: "#app",
+            data() {
+                return {
+                   PersonArr: [
+                       {id: 1,names: "李强",address: "陕西省宝鸡市眉县"},
+                       {id: 2,names: "李强",address: "陕西省宝鸡市眉县"},
+                       {id: 3,names: "李强",address: "陕西省宝鸡市眉县"},
+                       {id: 4,names: "李强",address: "陕西省宝鸡市眉县"},
+                       {id: 5,names: "李强",address: "陕西省宝鸡市眉县"},
+                       {id: 6,names: "李强",address: "陕西省宝鸡市眉县"},
+                   ],
+                   car: {
+                       carName: "奥迪A4",
+                       price: "70万",
+                       color: "黑色"
+                   }
+                    
+                }
+            },
+            beforeCreate() {
+                console.log("创建Vue对象实例前的准备");
+            },
+           
+        });
+
+    </script>
+    
+</body>
+</html>

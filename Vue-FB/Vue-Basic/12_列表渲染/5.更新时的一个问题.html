@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.更新时的一个问题</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="app">
+
+        <!-- 人的信息 -->
+        <h2>人员列表</h2>
+        <button @click="updateMei">更新马冬梅的信息</button>
+      
+        <!-- 遍历数组-->
+        <ul v-for="(person, id) in PersonArr" :key="person.id">
+            <li>{{person.id}}-{{person.names}}-{{person.address}}--{{person.age}}</li>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+
+        // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    sortType:0, // 1 升序  2 降序  3 原顺序
+                    keyWold: '',
+                    PersonArr: [
+                        { id: 1, names: "马冬梅", address: "陕西省宝鸡市眉县", age: 34 },
+                        { id: 2, names: "周冬雨", address: "陕西省宝鸡市眉县", age: 20 },
+                        { id: 3, names: "周杰伦", address: "陕西省宝鸡市眉县", age: 24 },
+                        { id: 4, names: "温兆伦", address: "陕西省宝鸡市眉县", age: 22 },
+                    ],
+                            
+                }
+            },
+            methods: {
+                updateMei(){
+                    // this.PersonArr[0].names ="马老师";
+                    // this.PersonArr[0].address ="陕西省西安市";
+                    // this.PersonArr[0].age = 50;
+                    // this.PersonArr[0] = { id: 1, names: "马老师", address: "陕西省西安市", age: 50 }; //不奏效
+                    this.PersonArr.splice(0,1,{ id: 1, names: "马老师", address: "陕西省西安市", age: 50 });
+                    
+                }
+            },
+           
+
+        });
+
+    </script>
+
+</body>
+
+</html>

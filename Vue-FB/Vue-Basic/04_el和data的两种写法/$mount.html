@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_el和data的两种写法</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        html,body{
+            background-color: green;
+        }
+        #app{
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>你好！{{names}}</h1>
+    </div>
+    <script type="text/javascript">
+
+        // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+        new Vue({
+            //此时的data可以写成对象式,但是到了组件的时候必须要用到函数式写法,否则报错
+            data:{
+                names: "尚硅谷",
+            }
+        }).$mount("#app"); //第二种写法
+
+    </script>
+
+</body>
+
+</html>

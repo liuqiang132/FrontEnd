@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<body>
+<!--
+  同源策略：是浏览器的一种安全策略指的是：协议，域名，端口号 必须完全相同
+  违背同源策略就是跨越
+-->
+<h1>凌玉洁</h1>
+<button>点击发送数据</button>
+<script type="text/javascript">
+    const btn = document.querySelector("button");
+    btn.onclick = function () {
+        //点击发送数据
+        const xml = new XMLHttpRequest();
+        xml.open('GET',"/data");
+        xml.send();
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4){
+                if (xml.status >=200 && xml.status <300){
+                    console.log(xml.response);
+                }else {
+                    console.error("出错了！！");
+                }
+            }
+        }
+
+    };
+</script>
+</body>
+</html>

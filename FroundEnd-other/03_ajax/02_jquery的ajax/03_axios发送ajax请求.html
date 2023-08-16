@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+
+</head>
+<body>
+<h2>axios发送ajax请求的测试</h2>
+<button>axios发送get请求</button>
+<button>axios发送post请求</button>
+<button>axios方法通用发送ajax请求</button>
+<script type="text/javascript">
+    $(function () {
+        //配置baseURL
+        // axios.defaults.baseUrl = "http://localhost:5000";
+        $('button').eq(0).click(function () {
+            axios.get('http://localhost:5000/get/axios',{
+                params: {
+                    id: 12345,
+                    vip: 5
+                }
+                //响应的成功状态码
+            }).then(value=>{
+                //此时所有获取到的数据都在data对象中封装
+                console.log(value.data);
+                //响应失败的状态码
+            }).catch(err=>{
+                console.error("出错了");
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

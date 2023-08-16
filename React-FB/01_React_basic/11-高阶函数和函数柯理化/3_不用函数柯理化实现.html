@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_不用函数柯理化实现</title>
+</head>
+<body>
+    <!--创建一个容器-->
+<div id="test"></div>
+<!--引入react核心库-->
+<script type="text/javascript" src="../libs/react.development.js"></script>
+<!--引入react-dom用于支持react操作DOM-->
+<script type="text/javascript" src="../libs/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转换为js-->
+<script type="text/javascript" src="../libs/babel.min.js"></script>
+
+
+<script type="text/babel">
+    //创建组件
+    class Login  extends React.Component{
+         //初始化状态
+         state = {
+            //测试username  password
+            username: '',
+            password: ''
+        }
+        //添加表单数据到状态中
+        saveFormData = (dataType,event)=>{
+              this.setState({[dataType]:event.target.value})
+        
+        }
+        //表单提交展示数据
+        showData = (event)=>{
+            event.preventDefault(); //阻止表单默认提交
+            const {username,password} = this.state;
+            alert(`你提交的用户名是:${username},你提交的密码是${password}`);
+        }
+        render(){
+            return (
+                <form  onSubmit={this.showData}>
+                    用户名: <input onChange={(event)=>{this.saveFormData('username',event)}} type="text" name="username" placeholder="请输入用户名"/>
+                    密码  : <input onChange={(event)=>{this.saveFormData('password',event)}} type="password" name="password" placeholder="请输入密码"/>
+                    <button>登录</button>
+                </form>
+            )
+        }
+ }
+ //渲染z
+    ReactDOM.render(<Login/>,document.getElementById('test'));
+</script>
+    
+</body>
+</html>

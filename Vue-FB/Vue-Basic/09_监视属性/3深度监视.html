@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.监视属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+      深度监视:
+          (1).Vue中的watch默认不检测对象内部值的改变(一层)
+          (2).配置deep:true可以监视对象内部值的改变(多层)
+
+     备注:
+          (1).Vue自身可以监视对象内部值的改变,但Vue提供的watch默认不可以的
+          (2).使用watch是根据数据的具体结构,决定是否采用深度监视
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="app">
+        <h1>今天天气很{{info}}</h1><br/>
+        <button @click="changeWeather">切换天气</button>
+        <hr/>
+        <h1>a的值是:{{numbers.a}}</h1>
+        <button @click=" numbers.a++">点击改变a的值</button>
+        <h1>a的值是:{{numbers.b}}</h1>
+        <button @click=" numbers.b++">点击改变b的值</button>
+    </div>
+    <script type="text/javascript">
+         // 阻止vue在启动时生成生产提示
+         Vue.config.productionTip = false;
+         const vm  = new Vue({
+             el: "#app",
+             data() {
+                 return {
+                     isHot:true,
+                     numbers:{
+                         a: 1,
+                         b: 1,
+                     }
+                 }
+             },
+             //方法
+             methods: {
+                changeWeather(){
+                   this.isHot = !this.isHot;
+                }
+             },
+            //计算属性
+             computed:{
+                 info(){
+                     return this.isHot ? "炎热":"凉爽";
+                 }
+             },
+             //监听
+             watch:{
+                 isHot:{
+                     handler(newValue,oldValue){
+                         console.log('isHot被修改了',newValue,oldValue);
+                     }
+                 },
+                //  "numbers.a":{
+                //      handler(){
+                //          console.log("a的值被改变了");
+                //      }
+                //  },
+                //  "numbers.b":{
+                //      handler(){
+                //          console.log("b的值被改变了");
+                //      }
+                //  }
+                //监视多级结构中某个属性的变化
+                numbers:{
+                    immediate: true, //第一次初始化就加载即可
+                    deep:true, //深度监视
+                    handler(newValue,oldValue){
+                        console.log("numbers的值修改了"+newValue,oldValue);
+                    }
+                }
+
+             },
+            
+
+         });
+    </script>
+    
+</body>
+</html>

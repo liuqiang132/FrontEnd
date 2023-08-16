@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-基本使用</title>
+    <script src='../js/vue.js'></script>
+</head>
+<body>
+
+    <!-- 
+        Vue中使用组件的三大步骤:
+          1.定义组件(创建组件)
+          2.注册组件(局部注册,全局注册)
+          3.使用组件(写组件标签)
+
+
+        (1)如何定义一个组件?
+             使用Vue.extend(options)创建,其中options和new Vue(options)时传入的那个options几乎一样,但也有点区别
+             区别如下:
+                   1.el不要写,为什么? --最终所有的组件都要经过一个vm的管理,由vm中的el决定服务于那个容器
+                   2.data必须写成函数,为什么? ---避免组件被复用时,数据存在引用关系
+                   备注: 使用template可以配置组件的结构
+        (2)如何使用组件?
+             1.局部注册: 靠new Vue的时候传入components选项
+             2.全局注册: 靠 Vue.component('组件名',组件)
+
+        (3)编写组件标签:
+             <school></school>
+     -->
+    <div id="app">
+        <!-- 使用组件 -->
+        <hello></hello> 
+        <!-- 使用组件 -->
+        <school></school>
+        <hr/>
+        <!-- 使用组件 -->
+        <student></student> 
+    </div>
+    <script type='text/javascript'>
+        //解决生产环境下的警告提示！！
+        Vue.config.productionTip = false;
+
+        //第一步: 创建组件school
+        const school = Vue.extend({
+            template: 
+            `
+             <div>
+                <h2>学校名称:{{schoolName}}</h2>
+                 <h2>学校地址:{{schoolAddress}}</h2>
+            </div>
+            `,
+            data() {
+                return {
+                    schoolName: "尚硅谷",
+                    schoolAddress: "北京昌平"  
+                }
+            },
+        });
+        //第一步: 创建组件school
+        const student = Vue.extend({
+            template: 
+            `
+            <div>
+                <h2>学生姓名:{{studentName}}</h2>
+                <h2>学生年齡:{{studentAge}}</h2>
+                <button @click="showStuName()">点我获取学生信息</button>
+            </div>
+                
+            `,
+            data() {
+                return {
+                    studentName: "凌玉洁",
+                    studentAge: 23,
+                    
+                }
+            },
+            methods: {
+                showStuName(){
+                    alert(this.studentName)
+                }
+            },
+        });
+        
+        //第一步: 注册组件hello
+        const hello = Vue.extend({
+            template:`
+            <div>
+                <h2>你好呀！！TOM</h2>
+            </div>
+            `,
+        });
+
+        //注册全局子组件
+        Vue.component('hello',hello);
+
+        const vm = new Vue({
+            el: "#app",
+            //第二步 : 注册组件(局部注册)
+            components:{
+                school,
+                student
+
+            }
+        });
+    </script>
+    
+</body>
+</html>

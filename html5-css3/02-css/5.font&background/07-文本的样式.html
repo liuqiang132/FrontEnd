@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            font-size: 50px;
+            font-family: 微软雅黑;
+            border: 2px orange solid;
+            /* 
+            text-decoration 设置文本修饰: 
+                    可选值: 
+                      none 什么都没有
+                      underline  下划线
+                      line-through 删除线
+                      overline  上划线
+            */
+            /* text-decoration: underline ; */
+            text-decoration: underline red ;
+        }
+        .box2{
+            font-size: 40px;
+            width: 200px;
+            /*
+              white-space 设置网页如何处理空白
+                   可选值: 
+                      normal 正常
+                      nowrap 不换行
+                      pre    保留空白
+            */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="box2">
+        The text-decoration shorthand CSS property sets the 
+        appearance of decorative lines on text. It is a shorthand
+         for text-decoration-line, text-decoration-color, text-decoration-style, 
+         and the newer text-decoration-thickness property
+    </div>
+
+
+    <div class="box1">
+        今天的天气真不错！hello
+    </div>
+    
+</body>
+</html>

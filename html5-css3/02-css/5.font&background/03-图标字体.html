@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <style>
+        li {
+            list-style-type: none;
+            font-size: 50px;
+        }
+        li::before {
+            /* 
+              通过伪元素来设置图标字体: 
+                   1.找到要设置图标的元素通过before或者after选中
+                   2.在content中设置字体的编码
+                   3.设置字体的样式
+                          fab 
+                          font-family: "Font Awesome 5 Brands"
+
+
+                          fas
+                          font-family: "Font Awesome 5 Free"
+                          font-weight: 900;
+            
+            */
+            content: "\f1b0";
+            font-family: "Font Awesome 5 Brands ";
+            font-weight: 900;
+
+        }
+
+        i {
+            font-size: 60px;
+            color: brown;
+            /* 使元素的向右移动 */
+            margin-right: 50px;
+        }
+
+        span {
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 第一种方式 -->
+    <ul>
+        <li>锄禾日当午</li>
+        <li>汗滴禾下土</li>
+        <li>谁知盘中餐</li>
+        <li>粒粒皆辛苦</li>
+    </ul>
+    <!-- 第二种方式 -->
+    <i class="fas fa-cat "></i>
+
+    <!-- 第三种方式 -->
+    <!-- 通过实体来使用图标字体： &#x图标的编码 -->
+    <span class="fas">&#xf0f3;</span>
+
+</body>
+
+</html>

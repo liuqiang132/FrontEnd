@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: orange 3px solid;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script type="text/javascript">
+    let div = document.getElementsByTagName("div")[0];
+    window.onkeydown = function () {
+        //创建对象
+        const xml = new XMLHttpRequest();
+        //设置响应到的对象类型
+        xml.responseType = "json";
+        xml.open("GET", "http://localhost:8848/server/json");
+        //发送请求
+        xml.send();
+        //绑定事件
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4) {
+                if (xml.status >= 200 && xml.status < 300) {
+                   //手动将json串转换成为对象
+                   //  let data = JSON.parse(xml.response);
+                   //  console.log(data);
+                   //  div.innerHTML = data.name;
+                   //  div.innerHTML = data.age;
+                   // 自动转换
+                    console.log(xml.response);
+                    div.innerHTML = xml.response.name;
+
+                }
+            }
+
+
+        };
+    };
+</script>
+
+</body>
+</html>

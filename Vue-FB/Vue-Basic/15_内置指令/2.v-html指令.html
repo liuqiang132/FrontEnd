@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.v-html指令</title>
+    <script src='../js/vue.js'></script>
+</head>
+<body>
+    <!-- 
+        v-html指令:
+              1.作用: 向指节点中渲染包含html结构的内容
+              2.与插值语法的区别:
+                   (1).v-html会替换掉节点中的所有内容 {{xxx}}则不会
+                   (2).v-html可以识别html结构
+              3.严重注意: v-html有安全性问题!!!!
+                   (1).在网站上动态渲染任意HTML是非常危险的,容易导致XSS攻击
+                   (2).一定要在可信的内容上使用v-html,永远不要用在用户提交的内容上
+     -->
+    <!-- 准备一个容器 -->
+    <div id="app">
+        <!-- 插值语法 -->
+        <h2>{{mag}}</h2>
+        <!-- v-text -->
+        <h2 v-text="mag"></h2>
+        <!-- 不能实现 -->
+        <!-- <div v-text="str"></div> --> 
+        <!-- v-html -->
+        <div v-html="str"></div>
+    </div>
+    <script type='text/javascript'>
+        //解决生产环境下的警告提示
+       Vue.config.productionTip = false;
+       const vm = new Vue({
+           el: "#app",
+           data() {
+               return {
+                   mag: "尚硅谷",
+                   str: '<h3>哈喽！你好呀</h3>',
+                   str2:"",
+               }
+           },
+       });
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数值扩展</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // Number.EPSILON 是javascript 表示的最小精度,且属性值接近于 2.220446049250313e-16,(主要用于调整浮点数的精度丢失)
+    console.log(Number.EPSILON);
+
+
+    console.log(0.1 + 0.2 === 0.3);
+    function equal(a,b){
+        if(Math.abs(a-b) < Number.EPSILON){
+            return true;
+        }else{
+            return false;
+        }
+    };
+    console.log(equal(0.1+0.2,0.3));
+
+    //2.二进制和八进制
+    let b = 0b1010; //二进制
+    let o = 0o777;  //八进制
+    let d = 100;    //十进制
+    let x = 0xff;   //十六进制
+    console.log(b);
+    console.log(o);
+    console.log(d);
+    console.log(x);
+
+    //3.Number.isFinite 检测一个数值是否为有限数
+    console.log(Number.isFinite(100));
+    console.log(Number.isFinite(100/0));
+
+    //4.Number.isNaN 检测一个数是否为NaN
+    console.log(Number.isNaN(100)); //false
+    console.log(Number.isNaN('s1'-23)); //true
+
+    //5.Number.parseInt Number.parseFloat 将字符串转换为整数
+    console.log(Number.parseInt('123')); //123
+    console.log(Number.parseFloat('345'));//345
+
+    //6.Number.isInteger 判断是否为整数
+    console.log(Number.isInteger(12.3)); //false
+    console.log(Number.isInteger(12));  //true
+
+    //7.Math.trunc 将数字的小部分抹去
+    console.log(Math.trunc(3.5)); //3
+
+    //8.Math.sign 判断一个数到底为正数，负数， 还是零
+    console.log(Math.sign(100));
+    console.log(Math.sign(0));
+    console.log(Math.sign(-100));
+
+    </script>
+    
+</body>
+</html>

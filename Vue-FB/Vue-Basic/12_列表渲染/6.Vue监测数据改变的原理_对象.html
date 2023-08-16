@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.Vue监测数据改变的原理</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="app">
+
+        <!-- 人的信息 -->
+        <h2>人员列表</h2>
+        <button @click="updateMei">更新马冬梅的信息</button>
+      
+        <!-- 遍历数组-->
+        <ul v-for="(person, id) in PersonArr" :key="person.id">
+            <li>{{person.id}}-{{person.names}}-{{person.address}}--{{person.age}}</li>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+
+        // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    sortType:0, // 1 升序  2 降序  3 原顺序
+                    keyWold: '',
+                    PersonArr: [
+                        { id: 1, names: "马冬梅", address: "陕西省宝鸡市眉县", age: 34 },
+                        { id: 2, names: "周冬雨", address: "陕西省宝鸡市眉县", age: 20 },
+                        { id: 3, names: "周杰伦", address: "陕西省宝鸡市眉县", age: 24 },
+                        { id: 4, names: "温兆伦", address: "陕西省宝鸡市眉县", age: 22 },
+                    ],
+                            
+                }
+            },
+           
+        });
+
+    </script>
+
+</body>
+
+</html>

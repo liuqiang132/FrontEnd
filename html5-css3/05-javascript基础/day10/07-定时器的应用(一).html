@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 去除默认样式 */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* 开启绝对定位 */
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            //获取box1
+            var box1 = document.getElementById("box1");
+            //获取btn01
+            var btn01 = document.getElementById("btn01");
+            //定义一个变量。用于保存定时器的标识
+            var timer;
+
+            //绑定btn01的单击响应函数
+            btn01.onclick = function () {
+
+                clearInterval(timer);
+                //开启一个定时器，用来执行动画效果
+               timer =   setInterval(function () {
+                    //获取box1的原来left的值
+                    var oldValue = box1.offsetLeft;
+                    //在旧值的基础上增加
+                    var newValue = oldValue + 5;
+                    //将新值设置给box1
+                    box1.style.left = newValue + "px";
+
+                    //当元素的值为800px,关闭定时器
+                    if(newValue === 800){
+                        clearInterval(timer);
+                    }
+
+                }, 30);
+
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <br />
+    <div id="box1"></div>
+
+</body>
+
+</html>

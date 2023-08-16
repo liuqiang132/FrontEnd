@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 
+         * - 在js中date表示时间对象
+         *  有 4 种方法创建新的日期对象：
+         *      new Date() 
+         *      new Date(year, month, day, hours, minutes, seconds, milliseconds) 
+         *      new Date(milliseconds) 
+         *      new Date(date string) 
+         * 
+         * 
+         * 
+         * */
+        //1.获取当前的时间，如果直接使用构造函数创建一个Date对象，则会封装为当前代码的执行时间
+        var d1 = new Date();
+        console.log(d1);
+        var s2 = Date.now();
+        console.log(s2);
+        //2.创建一个指定的时间对象，需要在构造函数中传递一个表示时间的字符串作为参数,日期的格式: 月份/日/年  时:分:秒
+        var d2 = new Date("12/13/2023 12:12:12");
+        var d3 = new Date("11/11/2025");
+        console.log(d2);
+        console.log(d3);
+    
+        //3.从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+        var date = d1.getDate();
+        console.log(date);
+
+        //4.从 Date 对象返回一周中的某一天 (0 ~ 6)。
+        var day = d1.getDay();
+        console.log(day);
+
+        //5.从 Date 对象返回月份 (0 ~ 11)。
+        var month = d1.getMonth();
+        console.log(month+1);
+
+        //6.从 Date 对象以四位数字返回年份。
+        var year = d1.getFullYear();
+        console.log(year);
+
+        //7.返回 1970 年 1 月 1 日至今的毫秒数。
+        //获取当前对象的时间戳
+        var time = d1.getTime();
+        console.log(time);
+
+        //8.把 Date 对象转换为字符串。
+        var str = d1.toDateString();
+        console.log(str);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

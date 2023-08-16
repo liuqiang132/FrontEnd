@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_canvas的基本用法</title>
+<style >
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  body{
+      background-color: aqua;
+  }
+  #test{
+      background-color: blueviolet;
+  }   
+
+</style>
+</head>
+<body>
+    <!-- 
+     canvas的基本使用:
+        1.什么是canvas(画布)?
+          <canvas>是HTML5新增的元素，可用于通过使用后Javascript中的脚本来绘制图形,例如，它可以用于绘制图形，创建动画。<canvas>最早由Apple引入Webkit
+          我们可以使用<canvas>标签来定义一个canvas元素，且使用<canvas>标签时，建议要成对出现，不要使用闭合的形式
+          canvas元素的默认具有宽高: width: 300px  height: 150px
+        2.替换内容:
+          <canvas>很容易定义一些替补内容《由于某些较老的浏览器(尤其是IE9之前的浏览器)不支持HTML元素”canvas“，但这些浏览器上你应该给用户展示些替代内容
+          只需在<canvas>标签中提供替换的内容就可以了，支持<canvas>的浏览器将会忽略在人前中包含的内容,并且只是正常渲染canvas,不支持<canvas>的浏览器会显示替换内容
+         
+        3.canvas标签的两个属性:
+          <canvas>看起来和<img>元素很相像，唯一不同的就是它并没有src和alt属性，实际上<canvas>标签只有两个属性---(width和height)，这些都是可选的
+          当没有设置宽度和高度的时候，canvas会初始化宽度为300px和高度为150px
+          画布的高度: 
+                 html属性设置width,height是只影响画布本身不影响画布内容，css属性设置width,height是不但影响画布本身的高度，还会影响画布中的内容等比缩放(缩放参照于画布默认的尺寸)
+
+        4.渲染上下文:
+           <canvas>元素只是创造了一个固定大小的画布，想要在它上边绘制内容，我们需要找到它的渲染上下文，<canvas>元素有一个叫做getContext()的方法，这个方法时用来获得选软上下文和它的绘画功能的
+
+        
+     -->
+    <canvas id="test" width="300px" height="150px">
+        <span>你的浏览器不支持画布功能,请换成chrome浏览器</span>
+    </canvas>
+</body>
+<script type="text/javascript">
+    let testNodes = document.querySelector('#test');
+    //检查性
+        if(testNodes.getContext){
+            let canvas = testNodes.getContext("2d");
+        }
+</script>
+</html>

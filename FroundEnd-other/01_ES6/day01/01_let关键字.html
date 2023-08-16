@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //声明变量
+    let a ;
+    let str1;
+    let f = 521;
+    let arr = [];
+
+    //1.变量不能重复声明,但var可以重复声明
+    let str = "liuqiang132";
+    let str = "fjfnejwnfkw";
+
+    //2.块级作用域，函数 eval
+    {
+        let girl = '刘强';
+    }
+    console.log(girl);
+
+    //3.不存在变量升级
+    console.log(song);
+    let song = '恋爱达人';
+
+    //4.不影响作用域链
+    let school =  'sguigu';
+    function f1() {
+        console.log(school);
+    }
+    f1();
+</script>
+
+</body>
+</html>

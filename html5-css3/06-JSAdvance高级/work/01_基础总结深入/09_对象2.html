@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+  问题: 什么时候必须用["属性名"]的形式:
+        1.属性名包含特殊字符: - 空格
+        2.变量名不确定
+-->
+<script type="text/javascript">
+    // 1.属性名包含特殊字符: - 空格
+    var  p = {};
+    // p.content-type = "text/json";  不能用
+    p["content-type"] = "text/json";
+    console.log(p["content-type"]);
+
+    //变量名不确定的时候
+    var proName = "myAge";
+    var  values = 15;
+    p[proName] = values;
+    console.log(p[proName]);
+
+
+</script>
+
+</body>
+</html>

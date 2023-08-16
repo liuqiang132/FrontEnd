@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东轮播图</title>
+    <link rel="stylesheet" href="../04-exercise/css/reset.css">
+    <style>
+        /* 设置图片容器 */
+        .img-list {
+            width: 970px;
+            height: 1100px;
+            margin: 100px auto;
+            position: relative;
+        }
+        /* 设置li */
+        .img-list li{
+            position: absolute;
+        }
+        /* 通过先关元素的层级来显示指定的图片 */
+        .img-list li:nth-child(1){
+            z-index: 1;
+        }
+        /* 设置导航条样式 */
+        .pointer{
+            position: absolute;
+            z-index: 99999;
+           bottom: 60px;
+           left: 40px;
+        }
+        .pointer a{
+            
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: auto 8px;
+            border-radius: 50%;
+            background-color: rgba(125, 121, 121, 0.6);
+        }
+        .s1:hover,.pointer a:hover{
+            border: 2px #fff solid;
+            background-color: rgb(139, 33, 33);
+        }
+        
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li><a href="javascript:;"><img src="./img/1.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./img/2.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./img/3.jpg"></a></li>
+        <div class="pointer">
+            <a class="s1" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </ul>
+</body>
+</html>

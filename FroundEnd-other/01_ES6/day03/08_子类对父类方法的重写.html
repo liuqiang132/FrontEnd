@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //定义一个人类(父类)
+        class Person{
+            //构造方法
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            show(){
+                console.log("我是一个人");
+            }
+        };
+
+        //定义一个学生类(子类)并且继承父类
+        class Student extends Person{
+            //构造方法
+            constructor(name,age,id,school){
+                super(name,age);
+                this.id = id;
+                this.school = school;
+            }
+            show(){
+                console.log("我是一名学生！！");
+            }
+            study(){
+                console.log("我可以学习文化知识");
+            }
+            playGame(){
+                console.log("我可以玩电脑游戏！！！");
+            }
+        };
+
+
+        //实例化对象
+        const stu = new Student("lingyujie",26,'25','西安交通大学');
+        //调用父类的方法
+        console.log(stu);
+        stu.show();
+        // 调用子类的方法
+        stu.playGame();
+        stu.study();
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

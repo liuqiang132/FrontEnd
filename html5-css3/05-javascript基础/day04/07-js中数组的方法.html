@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建一个数组
+        var arr = [1,2,3,4,5,6,7,8,9,10];
+        /**
+         * push(): 该方法可以向数组的末尾添加一个或多个元素,并返回数组的新的长度
+         * pop()： 删除并返回最后一个元素，并将被删除的元素作为元素的返回值返回
+         * unshift() 向数组开头添加一个或者多个元素并返回新的数组长度并返回新数组的长度
+         * shift()   删除数组的第一个元素
+         * 
+         * 
+         * 
+         * */
+        //添加元素push()
+         var xin= arr.push(11,12,13,14,15);
+        //删除数组中的最后一个元素pop()
+        arr.pop();
+        arr.pop();
+        console.log(arr.pop());
+
+
+       //unshift()  向数组开头添加一个或者多个元素并返回新的数组长度
+       //向前边插入元素以后,其他的元素索引会一次调整
+       arr.unshift(99,444,567);
+       console.log(arr);
+
+
+       //shift()
+       arr.shift();
+       console.log(arr);
+       arr.shift();
+       console.log(arr);
+       
+        
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

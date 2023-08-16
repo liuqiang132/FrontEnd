@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-组件的嵌套</title>
+    <script src='../js/vue.js'></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 使用组件 -->
+        <app></app>
+    </div>
+    <script type='text/javascript'>
+        //解决生产环境下的警告提示！！
+        Vue.config.productionTip = false;
+
+        //创建student组件
+        const stu = Vue.extend({
+            name: "student",
+            template:
+            `<div>
+                <h2 v-if="true"> {{stuName}}  </h2>
+                <h2 v-if="true"> {{stuAge}}  </h2>
+             </div>`,
+            data() {
+                return {
+                    stuName: "凌玉洁",
+                    stuAge: 25,
+                }
+            },
+        });
+        // 创建组件school
+        const school = Vue.extend({
+            name: "atguigu",
+            template:
+                `
+             <div>
+                <h2>学校名称:{{schoolName}}</h2>
+                 <h2>学校地址:{{schoolAddress}}</h2>
+                 <hr/>
+                 <stu></stu>
+            </div>
+            `,
+            data() {
+                return {
+                    schoolName: "尚硅谷",
+                    schoolAddress: "北京昌平"
+                }
+            },
+            // 注册student
+            components: {
+                stu
+            }
+        });
+        //创建hello组件
+        const hello = Vue.extend({
+            name: "hello",
+            template:
+            `
+            <div>
+                <h2>{{msg}}</h2>
+            </div>
+            `,
+            data() {
+                return {
+                    msg: "欢迎来到尚硅谷学习",
+                }
+            },
+        })
+        
+        
+        //创建app组件
+        const app = Vue.extend({
+            template:
+            `
+             <div>
+                <hello></hello>
+                <school></school>    
+             </div>  
+            `,
+            components:{
+                school,
+                hello,
+
+            }
+        });
+        const vm = new Vue({
+            el: "#root",
+            //第二步 : 注册组件(局部注册)
+            components: {app}
+        });
+    </script>
+
+</body>
+
+</html>

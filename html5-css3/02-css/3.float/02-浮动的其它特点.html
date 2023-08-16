@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-浮动的其它特点</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+        }
+        /* 
+         元素设置浮动以后，将会从文档流中脱离，从文档流中脱离以后，元素的一些特点也会发生一些变化
+        
+        脱离文档流的特点: 
+             块元素：
+                     1.块元素不再独占页面一行
+                     2.脱离文档流也会，块元素的宽度和高度默认都被内容撑开
+            行内元素: 
+                     行内元素脱离文档流以后会变成块元素，特点和块元素一样
+        
+
+            脱离文档流以后，不需要再区分块和行内元素了
+        */
+        .box2{
+           background-color: #bfa;
+           float: left;
+        }
+        span{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box1"></div>
+    <p>我是一个学校的程序员，我要真好多钱</p> -->
+
+    <!-- <div class="box2">hahahhah</div> -->
+    <span>我是一个span</span>
+    
+</body>
+</html>

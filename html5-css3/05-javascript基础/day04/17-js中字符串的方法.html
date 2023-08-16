@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 在底层字符串时以字符数组的形式保存的 如:['h','e','l','l','o']
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * */
+        //创建一个字符串
+        var str = "Hello liuqiang132";
+        //1.length()获取字符串的长度
+        console.log("length:"+str.length);
+        console.log(str[6]);
+
+        //2.charAt() 返回在指定位置的字符。根据索引获取指定的字符
+        console.log(str.charAt(13));
+
+        //3.charCodeAt() 返回在指定的位置的字符的 Unicode 编码。 
+        console.log(str.charCodeAt(13));
+
+
+        //4.fromCharCode() 从字符编码创建一个字符串。
+       newStr =  String.fromCharCode(72); 
+       console.log(newStr);
+
+
+       //5.indexOf() 检索字符串。该方法用于检索一个字符串中是否含有指定内容,如果字符串
+       //中含有该内容，则会返回第一次出现的索引，如果没有找到指定的内容，则返回-1
+       //可以指定一个第二个参数，指定开始查找的位置，
+       var strs  = "hello world";
+        console.log(strs.indexOf("l",1));
+
+
+
+        //6.lastIndexOf() 从后向前搜索字符串，该方法的用法和indexof()一样，
+        // indexof是从前开始往后找的
+        // lastindexof是从后往前找的，也可以指定开始查找的位置
+        var str3  = "hello world";
+        console.log(str3.indexOf("l",2)); 
+
+
+
+        //7.slice() 可以从字符串中截取指定的内容,不会影响原字符串，而是将截取到内容返回
+        //参数一: 开始位置的索引  参数二: 结束位置的索引，负数的话将会从后边开始计算
+        console.log(str.slice(1,2));
+
+
+        //8.substring() 提取字符串中两个指定的索引号之间的字符。和slice()类似
+        //参数一: 开始位置的索引  参数二: 结束位置的索引，且不能是负数
+        //而且它还会自动调整参数的位置，如果第二个参数小于第一个，则自动交换
+        console.log(str.substring(2,1));
+
+
+        //9.substr() 从起始索引号提取字符串中指定数目的字符。 参数一：截取开始位置的索引  参数二: 截取的长度
+        console.log(str.substr(3,2));
+
+
+        //10.split() 把字符串分割为字符串数组。可以将一个字符串拆分为一个数组
+        var str4 = "ass,aaaa,sss,ddd";
+        var charArr = str4.split(",");
+        console.log(charArr);
+
+        //11.toLocaleLowerCase() 把字符串转换为小写。 toLocaleUpperCase() 把字符串转换为大写。 
+        var str6 = "ass,aaaa,sss,ddd";
+        console.log(str6.toLocaleLowerCase());
+        console.log(str6.toLocaleUpperCase());
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

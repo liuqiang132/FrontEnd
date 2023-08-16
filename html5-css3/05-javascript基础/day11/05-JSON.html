@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var json = '{"name":"liuqiang132"."age":28,"sex":"男"}';
+        //eval() 这个函数可以用来执行一段字符串形式的js代码，并且执行结果返回
+        //如果使用eval()执行的字符串中含有{} 它会将{}当成代码块，如果不希望将其当成代码块，在其前后各加（）
+        var str = "alert('hello')";
+        eval('("+json+")');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function * gen(arg){
+            console.log(arg);
+
+            let one = yield 1111;
+            console.log(one);
+            let two =  yield 2222;
+            console.log(two);
+            let treen =  yield 3333;
+            console.log(treen);
+            let four = yield 4444;
+            console.log(four);
+
+        };
+        let iterator = gen("AAAA");
+        console.log(iterator.next("bbb"));
+        console.log(iterator.next("ccc"));
+        console.log(iterator.next("ccc"));
+        console.log(iterator.next("ddd"));
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

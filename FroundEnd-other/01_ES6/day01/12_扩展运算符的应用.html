@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+
+      //数组的合并
+      const s1 = ['小沈阳','沈春阳'];
+      const s2 = ['曾毅','玲花'];
+
+      //使用数组的api操作
+      const ss = s1.concat(s2);
+      console.log(ss);
+
+
+      //es6的新语法
+      const s3 = [...s1,...s2];
+      console.log(s3);
+
+
+      //2.数组的克隆: 浅拷贝
+      const s4 = ['E','G','M'];
+      const s5 = [...s4];
+      console.log(s5);
+
+
+      //3.将伪数组转换为真正的数组
+      const divs = document.querySelectorAll('div');
+      const arrays = [...divs];
+      console.log(arrays);
+
+      
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        ：link表示没有访问过的链接
+        :visited 表示访问过的链接
+        :hover 表示鼠标移入的状态
+        :active 表示鼠标点击
+        由于隐私的原因,所以visited这个伪类只能修改链接的颜色
+        */
+        a:link{
+            color: green;
+        }
+        a:visited{
+            color: pink;
+        }
+        a:hover{
+            color: black;
+            font-size: 50px;
+        }
+        a:active{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+        1.访问过的链接
+        2.访问过的链接
+     -->
+    <a href="https://www.baidu.com">baidu</a>
+    <a href="https://www.hao123.com">hao123</a>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-props的基本使用</title>
+</head>
+<body>
+<div id="test1"></div>
+<!--引入react核心库-->
+<script type="text/javascript" src="../libs/react.development.js"></script>
+<!--引入react-dom用于支持react操作DOM-->
+<script type="text/javascript" src="../libs/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转换为js-->
+<script type="text/javascript" src="../libs/babel.min.js"></script>
+<!--引入props-types 用于对组件标签属性进行限制-->
+<script type="text/javascript" src="../libs/prop-types.js"></script>
+<script type="text/babel">
+  //1.创建函数式组件
+  function Person(props) {
+      console.log(props)
+      const {name,age,sex} = props;
+      return (
+          <strong>
+              <ul>
+                  <li>姓名:{name}</li>
+                  <li>年龄:{age}</li>
+                  <li>性别:{sex}</li>
+              </ul>
+          </strong>
+      )
+  }
+  //对标签属性进行类型、必要性的限制
+  Person.prototypes = {
+      name: PropTypes.string.isRequired, //限制name必传,且为字符串
+      age: PropTypes.number, //限制age为数值
+      sex: PropTypes.string, //数值性别为字符串
+      speak: PropTypes.func //限制function为一个函数
+
+  }
+  //指定默认的标签属性
+ Person.defaultProps = {
+      sex: '不男不女',
+      age: 100
+  }
+    //2.渲染组件到页面
+    ReactDOM.render(<Person name="Marry"/>, document.getElementById('test1'));
+</script>
+</body>
+</html>

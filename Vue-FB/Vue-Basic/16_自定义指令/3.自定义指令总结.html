@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+             自定义指令总结:
+                   一、定义语法:
+                        (1).局部指令:
+                            new Vue({
+                                directives:{指令名:配置对象}         
+                            });
+                            或者new Vue({
+                            diretives(指令名:回调函数)
+                           });
+                        (2).全局指令:
+                             Vue.diretive(指令名,配置对象) 或者   Vue.diretive(指令名,回调函数)
+                   二、配置对象中常用的3个回调:
+                        1.bind: 指令与元素成功绑定时调用
+                        2.inserted: 指令所在元素被插入页面时调用
+                        3.update: 指令所在模板结构被重新解析时调用
+                   三、备注:
+                        1.指令定义时不加v-,但使用时要加v-
+                        2.指令名如果是多个单词,要使用kebab-case命名形式,不要用caselCase命名
+                    
+     -->
+    
+</body>
+</html>

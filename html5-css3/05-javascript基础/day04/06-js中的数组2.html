@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.创建一个数组
+        var arr = new Array();
+        //2.使用字面量来创建数组
+        var arr1 = [];
+        console.log(typeof arr1);
+
+        //3.使用字面量创建数组时，可以在创建时指定数组中的元素
+        var arr2 = [1,2,3,4,5,6,7];
+        console.log(arr2);
+        console.log(arr2.length);
+
+        //4.使用构造函数创建数组时，也可以同时添加元素，将要添加的元素作为构造函数的参数传递
+        var arr4 = new Array(10,20,30);
+        
+        //创建一个数组中只用一个元素10
+        arr5 = [10];
+
+        //创建一个长度为10的数组
+        arr6 = new Array(10);
+        console.log(arr4);
+
+
+        //数组中的数据类型可以是任何数据类型
+       var arr7 = ["hello","sss",1,true,null,undefined];
+        console.log(arr7);
+
+
+        //也可以是对象
+        var arr9 = [{name: "liuqiang132",age: 23},
+                    {name: "xieluyao",age: 36},
+                    {name: "lingyujie",age: 36}]
+
+        console.log(arr9);
+
+        //也可以是函数
+        var arr10 = [function fun1(){ alert("fun1()")},
+                     function fun2(){ alert("fun2()")}];
+
+            console.log(arr10);
+            arr10[0]();
+            arr10[1]();
+
+
+        //数组中也可以放数组---二维数组
+        var arr11 = [[1,2,3],[4,5,6],[7,8,9]];
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

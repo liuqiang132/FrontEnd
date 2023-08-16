@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建一个数组
+         var arr = [11,2,3,1,2,3,4,2,3,1,34,4,5,6];
+         var arr1 = [99,77,88];
+         var arr2 = ["孙悟空","猪八戒","沙和尚","唐僧"];
+
+         //1.concat()可以链接两个或多个数组，并将新的数组返回,并且该方法不会对原数组产生影响
+         var result = arr.concat(arr1,arr2);
+         console.log(result);
+
+
+         //2.join() : 该方法可以将数组转换为一个字符串，这个字符串将会称为数组中元素的连接符，该方法不会对原数组产生影响，而是将装换后的字符串作为结果返回
+         var newArr = arr.join("------>");
+         console.log(newArr);
+
+
+         //3.reverse(): 该方法是颠倒数组中元素的顺序,该方法会直接修改原数组
+         var arrs = arr2.reverse();
+         console.log(arrs);
+
+         //4.sort(): 该方法可以对数组中的元素进行排序,即使对于纯数字的数组,使用sort()排序时，也会按照Unicode编码来排序
+         //我们可以自己指定排序的规则： 我们可以自定义排序规则：返回值大于0交换位置,小于0不交换位置
+         var arrs1 = arr.sort(function(a,b){
+             return a - b;
+         });
+         console.log(arrs1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

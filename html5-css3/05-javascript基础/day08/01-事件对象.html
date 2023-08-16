@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 450px;
+            height: 150px;
+            border: 1px solid black;
+        }
+        #box2 {
+            width: 450px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //当鼠标在box1中移动时,在box2中显示鼠标的坐标
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            /**
+             * onmousemove - 该事件将会在鼠标在元素中移动时被触发
+             * 
+             * 事件对象:
+             *  - 当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数，在事件对象中封装了当前
+             *  - 事件相关的一切信息, 如: 鼠标的坐标  键盘那个按键被按下了
+             *  
+             * 在IE8中，响应函数被触发时，浏览器不会传递事件对象，在IE8浏览器及以下浏览器中,时将事件对象作为window对象的属性保存的
+             * 
+             * 
+             * */
+            box1.onmousemove = function (event) {
+
+                //解决事件对象的兼容问题
+                event = event || window.event;
+
+                //clientX 可以获取鼠标指针的水平坐标
+                //clientY 可以获取鼠标指针的垂直坐标
+                var x = event.clientX;
+                var y = event.clientY;
+
+
+                //在box2中展示x,y的坐标信息
+                box2.innerHTML = "x = " + x + "," + "y = " + y;
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div><br />
+    <div id="box2"></div>
+
+</body>
+
+</html>

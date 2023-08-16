@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_Promise.prototype.then方法</title>
+</head>
+<body>
+    <script>
+        //声明一个Promise对象
+     const p = new Promise((reslove,reject)=>{
+         setTimeout(()=>{
+             //模拟后台获取到数据了
+            reslove("用户数据!!");
+            // reject(data);
+
+         },3000);
+     });
+
+     /**
+      * 调用then方法，then方法的返回结果是Promise对象，对象状态由回调函数的执行结果决定
+      * 
+      * 如果回调函数中返回的结果是 非 Promise 状态为成功,返回值为对象的成功的值
+      * 
+      * 
+      * 
+      * 
+      * 
+      * 
+      * */
+
+
+    // const reslut = p.then((value)=>{
+    //     //1.非Promise对象
+    //     console.log(value);
+    //     // return 123;
+
+
+    //     //2.是Promise对象
+    //     // return new Promise((reslove,reject)=>{
+    //     //     reslove(value);
+
+    //     // });
+
+    //     //3.抛出异常
+    //     // throw new Error("出错了");
+    //     throw "出错了";
+    //  },(err)=>{
+
+    //     //失败
+    //     console.warn(err);
+
+    //  });
+
+
+    //链式调用
+    p.then(value=>{
+
+    },reason=>{
+
+    }).then(value=>{
+
+    },reason=>{
+
+    });
+    </script>
+</body>
+</html>

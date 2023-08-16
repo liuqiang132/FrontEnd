@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建一个数组
+        var arr = ["孙悟空","猪八戒","沙和尚","唐僧","玉兔精","凌玉洁","谢璐瑶"];
+
+        //1.for循环遍历数组的元素
+        // for(var i = 0;i<arr.length;i++){
+        //     console.log("["+i+"]"+" = "+arr[i]);
+        // }
+
+
+        /**
+         * 2.foreach()循环遍历数组的元素.且需要一个函数作为参数
+         *   - 像这种函数,由我们创建但是不由我们调用的,我们称为回调函数
+         *   - 数组有几个元素函数就会执行几次，每次执行时，浏览器会将遍历到的元素以实参的形式
+         *     传递进来，我们可以定义形参,来读取这些内容
+         * 
+         *   - 浏览器会在回调函数中传递三个参数:
+         *          第一个参数: 就是当前正在遍历的元素
+         *          第二个参数: 就是当前正在遍历元素的下标
+         *          第三个参数: 就是当前数组对象
+         * 
+         * 
+         * 
+         *  - 注意: IE8浏览器不支持
+         *     
+         * */
+       
+        arr.forEach(function(value,index,obj){
+            console.log(index + "=" + value);
+
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        表单: 
+          -表单在现实生活中表单用于提交数据
+          -在网页中也可以使用表单，网页中的表单用于将本地的数据提交给远程的服务器
+     -->
+    <!-- 
+      form 的属性
+           action 表单要提交的服务器的地址
+      -->
+    <form action="target.html">
+        <!-- 
+            文本框： 数据要提交到服务器中，必须要为元素指定一个name属性
+         -->
+        用户名:<input type="text" name="username"><br/>
+
+        <!-- 密码框
+        -->
+        密码: <input type="password" name="password"><br/>
+
+        <!-- 
+            单选按钮:name属性必须一致，而且必须要指定一个value属性，value属性最终会作为用户的天蝎的值
+             -checked 可以将单选按钮设置为默认选中
+          -->
+        单选按钮:<input type="radio" name="sex" value="a" checked>男
+                <input type="radio" name="sex" value="b">女<br/>
+
+        多选框 <input type="checkbox" name="test" value="1">
+               <input type="checkbox" name="test" value="2">
+               <input type="checkbox" name="test" value="3">
+               <input type="checkbox" name="test" value="4">
+               <input type="checkbox" name="test" value="5"><br/>
+
+
+
+        <!-- 下拉列表:  -->
+             <select name="haha" id="">
+                 <option value="i">选项一</option>
+                 <option value="ii">选项二</option>
+                 <option value="iii">选项三</option>
+                 <option value="iiii">选项四</option>
+                 <option value="iiii">选项五</option>
+             </select><br/>
+        <!-- 提交按钮 -->
+        <input type="submit" value="登录">
+    </form>
+
+</body>
+
+</html>

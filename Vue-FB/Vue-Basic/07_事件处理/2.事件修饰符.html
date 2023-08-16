@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.事件修饰符</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        * {
+            margin-top: 35px;
+            padding: 0;
+        }
+
+        .demo1 {
+            height: 100px;
+            background-color: olivedrab;
+        }
+        .box1 {
+            height: 100px;
+            background-color: orange;
+        }
+
+        .box2 {
+            height: 40px;
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+       Vue中的事件修饰符:
+           1.prevent: 阻止默认事件(常用)
+           2.stop:  阻止事件冒泡(常用)
+           3.once: 事件只触发一次(常用)
+           4.capture: 使用事件的捕获模式
+           5.self: 只有event.target是当前操作的元素时才触发事件
+           6.passive: 事件的默认行为立即执行,无需等待事件回调执行完毕
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="app">
+        <h1>欢迎来到{{school}}学习</h1>
+        <!-- prevent: 阻止默认事件(常用) -->
+        <a href="http://www.atguigu.com" @click.prevent.stop="show">点我提示信息1</a>
+
+        <!-- stop:  阻止事件冒泡(常用) -->
+        <div class="demo1" @click="show">
+            <button @click.stop="show">点我提示信息1</button>
+        </div>
+
+        <!-- once: 事件只触发一次(常用) -->
+        <button @click.once="showInfo">事件只触发一次</button>
+
+
+        <!-- capture: 使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showMsg(1)">
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <!-- self: 只有event.target是当前操作的元素时才触发事件 -->
+        <div class="demo1" @click.self="show">
+            <button @click="show">点我提示信息1</button>
+        </div>
+        <!-- 修饰符可以连续写 -->
+
+    </div>
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    school: "尚硅谷"
+                }
+            },
+            methods: {
+                show(event) {
+                    // alert("同学你好！！！");
+                    console.log(event.target);
+                },
+                showInfo() {
+                    alert("事件只触发一次");  
+                },
+                showMsg(msg) {
+                    console.log("触发box" + msg);
+
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>

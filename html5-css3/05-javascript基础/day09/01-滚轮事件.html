@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            //当鼠标滚轮向下滚动时，box1变长，当鼠标滚轮向上滚动时，box1变短
+            var box1 = document.getElementById("box1");
+
+            //为box1绑定一个鼠标滚轮滚动的事件
+            box1.onmousewheel = function (event) {
+                /**
+                 * onmousewheel鼠标滚轮滚动的事件，会在滚轮滚动时触发，但是火狐浏览器不支持
+                 * 
+                 * 在火狐浏览器需要使用DOMMouseScroll来绑定滚动事件，注意该事件需要通过addEventListener()函数绑定
+                 * 
+                 * 
+                 * 
+                 * */
+                event = event || window.event;
+                //event.wheelDelta可以获取鼠标滚轮滚动的方向，形式滚120 向下滚-120，wheelDelta这个值我们不看大小，只看正负
+                //alert(event.wheelDelta) ;
+
+                //wheelDelta这个属性火狐浏览器不支持，在火狐中使用evenet.detail来获取滚轮滚动的方向，向上滚-3 向下滚3
+                //alert(event.detail);
+                if (event.wheelDelte > 0 || event.detail < 0) {
+                    //当鼠标滚轮向上滚动时，box1变短
+                    box1.style.height = box1.clientHeight -10 + "px";
+
+                } else {
+
+                    //当鼠标滚轮向下滚动时，box1变长
+                    box1.style.height = box1.clientHeight + 10 + "px";
+
+                }
+
+
+
+
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+
+</body>
+
+</html>

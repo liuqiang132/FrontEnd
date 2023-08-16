@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+         *1. 一元运算符： 只需一个操作符 如:  + - *  / %  =   ++  --
+         *
+         * 自增 ++ 
+         *       - 通过自增可以是变量在自身的基础上增加1
+         *       - 对于一个变量以后,原变量的值会立即自增1
+         *       - 分为两种 ++a 和 a++ ，无论是a++还是++a 都会立即是原变量的自增1  
+         * 
+         * 自减 --
+         *       - 通过自减可以是变量在自身的基础上减1
+         *       - 自减分为两种: a--和 --a，都会在自身的基础上使其减1
+         * 
+         * */
+        var a = 1;
+        a++;
+        console.log(a);
+        var b = 20;
+        b = b-- + --b;
+        console.log(b);
+        /**
+         * 2.逻辑运算符: &&(与)  ||(或)   !(非)
+         * 
+         * ! 可以用来对一个值进行取反操作
+         * 
+         * &&  两个值都是true,则结果为true;否则为flase，有短路现象
+         * 
+         * ||  两个值都是false，则结果为flase,否则为true 有短路现象
+         * 
+         * 
+         * 注意:
+         *        - 可以为一个任意数据类型取反两次，来将其结果转换为布尔值，原理和Boolean()函数一样
+         *        - 与运算： 如果两个值都为true 则返回后面的值,如果两个值中有false 则返回靠前的false
+         *        - 或运算: 如果第一个值为true，则直接返回第一个值；第一个值为false,则返回第二个值
+         * 
+         * 
+         * */
+        var s1 = true;
+        console.log(!s1);
+
+        var s2 = true && true;
+        console.log(s2);
+
+
+        var s3 = true || false;
+        console.log(s3);
+
+        var s4 = 1 && 4;
+        console.log(s4);
+        var s5 = NaN && 0;
+        console.log(s5);
+
+        var s6 = 2 || 1;
+        console.log(s6);
+
+        /**
+         * 
+         *  3.赋值运算符:  =   +=   -=    *=    /=    %=
+         * 
+         * 注意: 除数不能为0
+         * 
+         * 
+         * 
+         * 
+         * 
+         * */
+        var n1 = 123;
+        console.log(n1);
+        n1 += 123;
+        console.log(n1);
+        n1 -= 123;
+        console.log(n1);
+        n1 *= 2;
+        console.log(n1);
+        n1 /= 2;
+        console.log(n1);
+        n1 %= 100;
+        console.log(n1);
+
+        /**
+         *  4.关系运算符： >  <  =   >=   <=  !=    ==  !=   ===(全等)  !==
+         * 结果只能为ture 或者  false
+         * 当使用== 进行字符串比较时，会进行隐式类型转换的
+         * NaN和任何值比较结果都为false,可以通过isNaN()函数判断一个值是否是NaN
+         * 不相等也会对变量进行自动的类型转换，如果转换后相等它也会返回false
+         * === 全等，用来判断两个值是否全等，且不会进行类型转换，如果两个值的类型不同直接返回false
+         * !== 不全等,用来判断两个值是否不全等，且不会进行类型转换，如果两个值的类型不同直接返回true
+         * 
+         * 
+         * 
+         * 
+         * */
+        var m1 = 5 > 10;
+        console.log(m1);
+        var m2 = 5 == 3;
+        console.log(m2);
+        console.log(4 != 4);
+        console.log("a" > "b");
+        console.log(null == 0);   //false
+        console.log(undefined == null); //true
+        console.log(NaN == 0);  //false
+        console.log(isNaN(2)); //fasle
+        console.log("123" === 123); //flase
+        console.log("123" !== 123);
+
+
+        // 5.条件运算符：三元运算符： 条件表达式 ?  条件表达式1 : 条件表达式2
+        3 > 4 ? alert("语句1") : alert("语句2");
+        var max = 3 > 4 ? 3 : 4;
+        console.log(max);
+
+
+        //6.代码块
+        {
+            alert("hello");
+            document.write("hello");
+            console.log("hello");
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

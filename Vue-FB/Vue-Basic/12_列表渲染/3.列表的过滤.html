@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-基本列表</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="app">
+
+        <!-- 人的信息 -->
+        <h2>人员列表</h2>
+        Search: <input type="text" placeholder="请输入姓名" v-model="keyWold">
+
+        <ul v-for="(person, index) in newPersons" :key="index">
+            <li>{{person.id}}-{{person.names}}-{{person.address}}--{{person.age}}</li>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+
+        // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    keyWold: '',
+                    PersonArr: [
+                        { id: 1, names: "马冬梅", address: "陕西省宝鸡市眉县", age: 19 },
+                        { id: 2, names: "周冬雨", address: "陕西省宝鸡市眉县", age: 20 },
+                        { id: 3, names: "周杰伦", address: "陕西省宝鸡市眉县", age: 21 },
+                        { id: 4, names: "温兆伦", address: "陕西省宝鸡市眉县", age: 22 },
+
+                    ],
+                    newPersons: [],
+                }
+            },
+            //1.属性监听方式实现:
+            watch: {
+                //监听keyWold关键字
+                keyWold: {
+                    immediate:true, //初始化一次数据
+                    handler(val) {
+                        this.newPersons = this.PersonArr.filter((p) => {
+                            return p.names.indexOf(val) !== -1;
+                        });
+                    }
+                }
+
+            },
+            //2.用计算属性方式实现:
+            computed:{
+                newPersons(){
+                 return  this.newPersons = this.PersonArr.filter((p) => {
+                      return p.names.indexOf(this.keyWold) !== -1;
+                    });  
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

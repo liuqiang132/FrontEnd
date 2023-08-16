@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch函数发送ajax请求</title>
+</head>
+<body>
+<button>fetch函数发送ajax请求</button>
+<script type="text/javascript">
+    const btn = document.querySelector('button');
+    btn.onclick = function () {
+    // fetch函数发送ajax请求
+        fetch("http://127.0.0.1:5000/fetch?vip=4",{
+            method: "POST",
+            headers: {
+                name: "liuqiang132"
+            },
+            body: "username=admin&password=admin",
+        }).then(response=>{
+            return response.json();
+        }).then(response=>{
+            console.log(response);
+        })
+    };
+</script>
+</body>
+</html>

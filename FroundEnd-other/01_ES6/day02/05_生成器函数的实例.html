@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        //功能需求： 1s 输出1111 2s 输出2222 3s输出3333 （传统方式）
+        // setTimeout(() => {
+        //     console.log(1111);
+        //     setTimeout(() => {
+        //         console.log(2222);
+        //         setTimeout(() => {
+        //             console.log(3333);
+        //         }, 3000);
+
+        //     }, 2000);
+
+        // }, 1000);
+
+        //异步编程方式
+        function  one(){
+            setTimeout(()=>{
+                console.log(1111);
+                iterator.next();
+            },1000);
+        };
+        function  two(){
+            setTimeout(()=>{
+                console.log(2222);
+                iterator.next();
+            },2000);
+        };
+        function  treen(){
+            setTimeout(()=>{
+                console.log(3333);
+                iterator.next();
+            },3000);
+        };
+
+        function * gen(){
+            yield one();
+            yield two();
+            yield treen();
+        }
+
+        let iterator = gen();
+        iterator.next();
+
+    </script>
+
+</body>
+
+</html>

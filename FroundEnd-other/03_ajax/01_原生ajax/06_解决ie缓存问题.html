@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: orange 3px solid;
+        }
+    </style>
+</head>
+<body>
+
+<button >解决ie缓存问题</button>
+<div></div>
+<script type="text/javascript">
+    let div = document.getElementsByTagName('div')[0];
+    let btn = document.getElementsByTagName('button')[0];
+    btn.onclick = function () {
+        //
+        const xml = new XMLHttpRequest();
+        // xml.responseType = 'json';
+        xml.open("GET","http://localhost:8848/server/ie"+ Date.now());
+        xml.send();
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4){
+                if (xml.status >= 200 && xml.status <300){
+                    div.innerHTML = xml.response;
+                    console.log(xml.response);
+                }
+            }
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

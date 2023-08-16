@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ajax{
+            width: 200px;
+            height: 200px;
+            border: black 2px solid;
+        }
+
+    </style>
+</head>
+<body>
+<div id="ajax"></div>
+<script type="text/javascript">
+    //获取元素
+    let  ajax = document.getElementById("ajax");
+    //绑定事件
+    ajax.addEventListener("mouseover",function () {
+        //获取对象
+        const xml = new XMLHttpRequest();
+        xml.open("POST","http://localhost:8000/server/post");
+        //设置请求头信息
+        // xml.setRequestHeader('','');
+        xml.send();
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4){
+                if (xml.status >= 200 && xml.status < 300){
+                    ajax.innerHTML = xml.response;
+                }
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

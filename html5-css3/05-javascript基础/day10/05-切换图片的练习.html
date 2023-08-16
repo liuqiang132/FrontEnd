@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+
+            //切换img对象
+            var img = document.querySelector("img");
+            //定义一个数组，保存图片的路径
+            var imgArr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+            var index = 0;
+
+            //为btn01和btn02绑定单击响应函数
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            //定义定时器变量
+            var timer;
+            btn01.onclick = function () {
+                //目前，我们每点击一次按钮，都会开启一个定时器，点击多次就会开启多个定时器，这就导致图片的切换速度过快，并且我们只能嫩关闭最后一次开启的定时器
+                //开启定时器，在开启定时器之前，需要将前元素上的其他定时器关闭即可
+                timer = setInterval(function () {
+                    index++;
+                    //判断如果是最后一张，则从第一张继续开始
+                    //    index  % = imgArr.length;
+                    if (index >= imgArr.length) {
+                        index = 0;
+                    }
+                    //修改img中src的内容
+                    img.src = imgArr[index];
+                }, 1000);
+            };
+            //关闭定时器
+            btn02.onclick = function () {
+
+                clearInterval(timer);
+            };
+
+        };
+    </script>
+</head>
+
+<body>
+    <img src="img/1.jpg" alt="美女图片">
+    <br />
+    <button id="btn01">开始</button>
+    <button id="btn02">停止</button>
+
+</body>
+
+</html>

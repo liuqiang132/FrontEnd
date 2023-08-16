@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_Promise的介绍及基本使用</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        //初始化Primise实例对象
+        let p = new Promise(function(resolve,reject){
+
+            //resolve 表示成功 reject 表示失败
+            setTimeout(function(){
+                // let data = "数据库中已经获取到了该数据";
+                //调用成功的方法
+                // resolve(data);
+                //调用失败的方法
+                let err = '获取数据库数据失败';
+                reject(err);
+
+            },2000);
+        });
+        //调用Promise对象当中的then方法
+        p.then(function(value){
+            //表示成功的状态
+            console.log(value);
+
+        },function(error){
+            //表示失败的状态
+            console.error(error);
+
+        });
+    </script>
+    
+</body>
+</html>

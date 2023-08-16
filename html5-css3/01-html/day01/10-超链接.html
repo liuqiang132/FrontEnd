@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-超链接</title>
+</head>
+<body>
+
+    <!-- 
+       1. target属性： 用来指定超链接打开的位置
+              可选值:
+                    _self  默认值在当前页面打开超链接
+                    _blank 在新的页面打开该链接
+     -->
+    <a href="http://www.hao123.com" target="_blank">超链接1</a>
+
+    <a href="#boot">去底部</a>
+
+    <a href="#p3">跳转到第三个自然段</a>
+
+    <!--2. 在开发中可以将#作为超链接的路径的占位符使用 -->
+    <a href="#">超链接4</a>
+
+    <!-- 占位符，什么都不做 -->
+    <a href="javascript:;">超链接5</a>
+    <!-- 
+        
+        可以直接将超链接的href属性设置成# 这样点击超衔接以后页面不会发生跳转，而是转到
+        当前页面的顶部的位置
+
+
+        id属性(唯一不重复的)
+              - 每一个标签都可以添加一个id的属性
+              - id属性就是元素的唯一标识,同一个页面中不能出现相同的id属性值
+    -->
+    <p id="p3">我的生活也是一如既往的好</p>
+    <a id="boot" href="#">回到顶部</a>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn01">点击我一下</button>
+<div id="box1"></div>
+
+<!--
+ 1.什么是回调函数?
+   * 你定义的，但你没调用，但最终它执行了
+
+
+ 2.常见的回调函数?
+  * dom事件回调函数
+  * 定时器回调函数
+  * ajax请求回调函数
+  * 声明周期回调函数
+ -->
+<script type="text/javascript">
+    //单击响应函数
+    document.getElementById("btn01").onclick = function () {
+        alert(this.innerHTML);
+
+    };
+
+
+    //定时器
+    // 超时定时器
+    //循环定时器
+    setInterval(function () {
+        alert("点击了我的");
+
+    },1000);
+
+
+</script>
+
+</body>
+</html>

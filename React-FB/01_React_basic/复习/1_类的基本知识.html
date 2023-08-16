@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-类的基本知识</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 定义一个类
+        class Person {
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            show(){
+                console.log("name:"+this.name+"age:"+this.age);
+            }
+        }
+        const p1 = new Person("Tom",28);
+        p1.show();
+    </script>
+    
+</body>
+</html>

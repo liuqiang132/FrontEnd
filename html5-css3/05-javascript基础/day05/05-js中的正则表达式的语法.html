@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 检查一个字符串中是否含有 .,   . 表示任意字符
+         * \.  表示 .
+         * \\  表示 \
+         * \w  表示任意字母，数字，_
+         * \W  表示除了字母,数字，_
+         * \d  表示任意数字
+         * \D  表示任意除了数字
+         * \s  表示空格
+         * \S  表示除了空格
+         * \b  表示单词边界
+         * \B  表示除了单词单词边界
+         *  
+         * 具体查看w3cschool离线文档
+         * 
+         * 
+         * */
+        var reg = /\./;
+        console.log(reg.test("dasdkm......"));
+
+        var dan = /\bchild\b/;
+        console.log(dan.test("child"));
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

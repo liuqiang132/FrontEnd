@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //定义一个对象
+        const banji = {
+            name: '终极一班',
+            stus: [
+                'xiaoming',
+                'xiaohuang',
+                'xiaotian',
+                'ziaodwn'
+            ],
+            //自定义迭代器
+            [Symbol.iterator](){
+                //声明索引遍历
+                let indenx = 0;
+                let _this = this;
+
+                return {
+                    next: function(){
+                        if(indenx < _this.stus.length){
+                          const reslut =  { value: _this.stus[indenx],done: false};
+                          //下标自增
+                          indenx++;
+                          //返回结果
+                          return reslut;
+                        }else{
+                            //返回结果
+                            return { value: "undefined",done: true};
+                            
+                        }
+
+                    
+                    }
+                };
+            }
+
+        };
+        //遍历对象
+        for (const values of banji) {
+            console.log(values);
+            
+        }
+    </script>
+
+</body>
+
+</html>

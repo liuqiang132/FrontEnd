@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>测试一</button>
+<button>测试二</button>
+<button>测试三</button>
+<button>测试四</button>
+<button>测试五</button>
+
+<script type="text/javascript">
+    var btns = document.getElementsByTagName("button");
+    // for (var i = 0; i < btns.length; i++) {
+    //     btns.index = i;
+    //   btns[i].onclick = function () {
+    //       alert("hello"+(this.index+1)+"个");
+    //   };
+    //
+    // }
+
+    //使用的是闭包技术
+    for (var i = 0; i < btns.length; i++) {
+        //匿名自调用函数
+        (function (i) {
+            var btn = btns[i];
+            btn.onclick = function () {
+                alert("第"+(i+1)+"个");
+            };
+
+        })(i);
+
+    }
+</script>
+
+
+</body>
+</html>

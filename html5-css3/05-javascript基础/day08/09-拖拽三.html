@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box2 {
+            width: 200px;
+            height: 300px;
+            margin: auto;
+            background-color: yellowgreen;
+        }
+
+        #box1 {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            /* 开启绝对定位 */
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            /**
+             * 拖拽的主要流程:
+             *  1.当鼠标按下时开始拖拽
+             *  2.当鼠标移动时box1也应该移动
+             *  3.当鼠标松开时，box1应该停留在box1松开时停留的位置,只需将mousemove对象设置为null即可
+             * 
+             * 
+             * */
+            //获取box1对象
+            var box1 = document.getElementById("box1");
+            //当鼠标按下时开始拖拽
+            box1.onmousedown = function (event) {
+                //解决浏览器的兼容问题
+                event = event || window.event;
+                //div的偏移量 鼠标.clientX - 元素.offsetLeft
+                //div的偏移量 鼠标.clientY - 元素.offsetTop;
+                var ol = event.clientX - box1.offsetLeft;
+                var ot = event.clientY - box1.offsetTop;
+
+                //当鼠标移动时box1也应该移动
+                document.onmousemove = function (event) {
+                    //解决浏览器的兼容问题
+                    event = event || window.event;
+                    //获取鼠标的坐标
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+                    //设置box1的偏移量
+                    box1.style.left = left + "px";
+                    box1.style.top = top + "px";
+
+                };
+                //当鼠标松开时，box1应该停留在box1松开时停留的位置,只需将mousemove对象设置为null即可
+                document.onmouseup = function () {
+                    //取消document的onmousemove事件
+                    document.onmousemove = null;
+                    //取消document的onmouseup事件
+                    document.onmouseup = null;
+                };
+
+                return false;
+            };
+
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+</body>
+
+</html>

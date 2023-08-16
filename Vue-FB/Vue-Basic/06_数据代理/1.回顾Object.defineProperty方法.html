@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.回顾Object.defineProperty方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let number = 18;
+        let person = {
+            name: "张三",
+            sex: "男",
+        };
+
+        Object.defineProperty(person,'age',{
+            // value: 18,
+            // enumerable:true, //控制属性是否可以枚举,默认值为false
+            // writable:true,//控制属性是否可以被修改,默认值false
+            // configurable:true,//控制属性是否可以被删除,默认值false
+            get(){
+                console.log("当你读取age属性时,读取age属性值");
+                return number;
+            },
+            set(value){
+                console.log("有人修改age属性的值,且值时"+value);
+                number = value;
+            }
+                
+        });
+    </script>
+    
+</body>
+</html>

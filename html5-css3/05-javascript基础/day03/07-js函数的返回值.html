@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建函数
+        /**
+         * 可以使用return来设置函数的返回值
+         * 语法: return 值  return后的值将会作为函数的执行结果返回。可以定义一个变量。来接收该结果
+         * 在函数中return后的语句都不会执行，且return后面可跟任何类型的值
+         * 实参可以是一个对象，也可以是一个函数
+         * 
+         * 
+         * break contine  return 三者之间的区别:
+         * 
+         * break 可以退出当前的循环
+         * contine 用于跳过当次的循环
+         * return  可以结束整个函数
+         * 
+         * 
+         * 
+         * */
+        // function add(a,b,c){
+        //     return a + b + c;
+        // }
+        // //函数调用
+        // console.log(add(100,200,300));
+
+
+        // // 创建一个函数功能为： 判断一个数是否为偶数，是则返回true 否则返回false
+        function flagoushu(a){
+            return a%2==0;
+        }
+        var shuzi = flagoushu(prompt("请输入一个数字:"));
+        if(shuzi == true){
+            console.log("该数是偶数");
+        }else{
+            console.log("该数不是偶数");
+        }
+
+
+        //函数功能： 给定一个半径，返回圆的面积
+        function rodius(r){
+
+            return 3.14*r*r;
+        }
+        console.log(rodius(prompt("请输入半径:")));
+
+        //函数的返回值可以是任意数据类型
+        function fun2(){
+            function fun3(){
+                alert("hello world");
+            }
+            return fun3();
+        }
+        // a = fun2();
+        // a();
+        // fun2()();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

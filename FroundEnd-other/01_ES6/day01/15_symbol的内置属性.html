@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      //symbol的内置属性
+      //haslnstance()  当其他东西使用instanceof运算符,判断是否为该对象的实例时，会调用这个方法
+     class Person{
+         static [Symbol.hasInstance](parm){
+             console.log(parm);
+             console.log("我被用来检测类型了"); 
+             return true;
+         }
+     }
+     let p = {}
+     console.log(p instanceof Person);
+
+
+     //
+     const arr1 = [1,2,3];
+     const arr2 = [4,5,6];
+
+     //判断是否展开被合并的值
+     arr2[Symbol.isConcatSpreadable] = false;
+     
+     console.log(arr1.concat(arr2)); //数组合并
+
+
+
+
+    </script>
+    
+</body>
+</html>

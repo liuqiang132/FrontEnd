@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h2>jquery发送ajax请求</h2>
+<button>通用型方法</button>
+<script type="text/javascript">
+    $(function () {
+        $('button').eq(0).click(function () {
+            //jquery通用方法发送ajax请求
+          $.ajax({
+              //url
+              url: "http://localhost:5000/get/jquery",
+              //请求参数
+              data: {a:100,b:200,c:300},
+              //请求类型
+              type: "GET",
+              //响应体结果的设置
+              dataType: "json",
+              //超时时间
+              timeout: 2000,
+              //成功的回调
+              success: function (data) {
+                  console.log(data);
+              },
+              //失败的回调
+              error: function () {
+                  console.error("请求错误！！！");
+              },
+             //头信息
+              headers: {
+                  c: 200,
+                  d: 400
+              }
+          });
+        });
+
+    });
+</script>
+</body>
+</html>

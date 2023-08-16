@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+
+            /**
+             * 键盘事件:
+             *  onkeydown  - 按键被按下
+             *  onkeyup    - 按键被松开
+             * 
+             * 键盘事件一般都会绑定个一些可以获取到焦点的对象或者时document
+             * */
+            document.onkeydown  = function(event){
+                event = event || window.event;
+                //可以通过keyCode来获取按键的编码，通过它判断哪个按按键被按下了
+                //除了keyCode 事件对象还提供了几个属性: altkey ctclkey  shiftkey,这三个用来判断，alt ctcl shift 是否被按下，如果按下返回true 否则返回false
+                if(event.keyCode === 89 && event.ctrlKey){
+
+                    console.log("ctrl和y按键被按下了");
+                }
+                
+            };
+            document.onkeyup = function(){
+                console.log("按键被松开了");
+            };
+
+            //获取input
+
+            var input = document.querySelector("input");
+            input.addEventListener("keydown",function(){
+
+                console.log("input框焦点被选中了");
+
+                //在文本框中输入的内容，属于onkeydown的默认行为，如果在onkeydown中取消了默认行为，则输入的内容，不会出现在文本框中
+                return false;
+            },false);
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+    <input type="text">
+    
+</body>
+</html>

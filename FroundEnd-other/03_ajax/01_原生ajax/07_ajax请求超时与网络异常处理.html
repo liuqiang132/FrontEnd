@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: orange 3px solid;
+        }
+    </style>
+</head>
+<body>
+
+<button >解决ie缓存问题</button>
+<div></div>
+<script type="text/javascript">
+    let div = document.getElementsByTagName('div')[0];
+    let btn = document.getElementsByTagName('button')[0];
+    btn.onclick = function () {
+        //
+        const xml = new XMLHttpRequest();
+        // xml.responseType = 'json';
+        //超时2s设置
+        xml.timeout = 2000;
+        //超时回调
+        xml.ontimeout = function(){
+            alert("请求超时异常,请稍后重试！！");
+        };
+        //网路异常问题
+        xml.onerror = function(){
+            alert("你的网路可能出现了一些问题");
+
+        };
+        xml.open("GET","http://localhost:8848/server/excption");
+        xml.send();
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4){
+                if (xml.status >= 200 && xml.status <300){
+                    div.innerHTML = xml.response;
+                    console.log(xml.response);
+                }
+            }
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

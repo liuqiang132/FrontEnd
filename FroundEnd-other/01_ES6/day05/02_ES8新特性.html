@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async函数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        // async函数
+        async function fun() {
+
+            //返回的结果不是一个Promise类型的对象,返回的结果就是成功Promise对象
+            // return 123;
+
+            // 抛出异常错误,返回的结果是一个失败的Promise对象
+            // throw new Error("出错了!");
+
+            //返回结果是一个Promise对象
+            return new Promise((reslove, reject) => {
+
+                // reslove("获取数据成功!!!");
+
+                reject("发送数据失败了!!");
+            });
+        };
+        let result = fun();
+        result.then(value => {
+            console.log(value);
+
+        }, reason => {
+            console.warn(reason);
+
+        });
+        console.log(result);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = new Object();
+        /**
+         * 
+         * 向对象中添加属性
+         * 
+         *   属性名： 
+         *        - 对象的属性名不强制要求遵守标识符的规范，什么乱七八糟的名字都可以使用。
+         *        - 但是我们使用时还是尽量按照标识符的规范去做
+         *        - 如果要使用特殊的属性名,不能采用.的方式操作，需要使用另一种方式：语法: 对象["属性名"] = 属性值;读取时也要采用这种方式
+         *        - 使用[]这种形式操作属性，更加灵活，在[]中可以直接传递一个变量,这样变量值是多少就会读取哪个属性
+         * 
+         *   属性值:
+         *        - jS中的属性值可以是任意的数据类型
+         * 
+         * 
+         * 
+         * */
+        obj["hello"] = "liuqiang132";
+        console.log(obj["hello"]);
+
+        //使用 var n = obj["hello"];
+        var n = "hello";
+        console.log(obj[n]);
+
+        obj.test = true;
+        obj.test = null;
+        obj.test = undefined;
+
+        var obj2 = new Object();
+        obj2.name = "猪八戒";
+        obj.test = obj2;
+        console.log(obj);
+        console.log(obj.test.name);
+
+        /**
+         * 
+         * in运算符: 通过该运算符可以检查一个对象中是否含有指定的属性，如果有则返回true,否则返回false
+         * 语法: "属性名" in 对象
+         * 
+         * 
+         * 
+         * 
+         * */
+        var obj3 = new Object();
+        obj3["name" ] = "xieluyao";
+        console.log("name" in obj3);
+        console.log("hello" in obj3);
+        console.log("test" in obj3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

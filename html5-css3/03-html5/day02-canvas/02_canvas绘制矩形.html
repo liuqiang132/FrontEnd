@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style >
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: aqua;
+        }
+        #test{
+            position: absolute;
+            margin: 0 auto;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<!--
+  canvas绘制矩形:
+       HTML中的元素canvas只支持一种原生的图形绘制： 矩形。所有其他的图形的绘制都至少需要生成一条路径
+
+       1.绘制矩形:
+          canvas提供了三种方法绘制矩形:
+                        <1>绘制一个填充的矩形(填充色默认为黑色):  fillRect(x,y,width,height)
+                        <2>绘制一个矩形的边框(默认边框为: 1px实心黑色) ：  strokeRect(x,y,width,height)
+                        <3>清除指定矩形区域，让清除部分完全透明: clearRect(x,y,width,height)
+          x与y指定了在canvas画布上所绘制的矩形的左上角(相对于圆点)的坐标，width和height设置矩形的尺寸(存在边框的话，边框会在width上占据1px的宽度，height同理)
+
+      2.strokeRect时，边框像素渲染的问题：
+          按理渲染出的边框应该是1px的,canvas在渲染矩形边框时，边框宽度时平均分在偏移量的两侧，context.strokeRect(10,10,100,100)：
+          边框会渲染在10.5和9.5之间，浏览器是不会让一个像素只用自己的一半的，相对于边框会渲染在9-11之间
+          context.strokeRect(10.5,10.5,100,100)：会渲染在10-11之间
+
+      3.添加样式和颜色:
+          fillStyle : 设置图形的填充颜色
+          strokeStyle: 设置图形轮廓颜色
+             默认情况下，线条和填充颜色都是黑色,css颜色值#0000000
+          lineWidth: 这个属性设置当前绘线的粗细，属性值必须为整数，默认值为1
+
+
+      4. lineWidth & 覆盖渲染
+
+
+
+      5.lineJoin:
+          设定线条与线条间接合处的样式(默认是miter)
+
+          round： 圆角
+          bevel： 斜角
+          miter： 直角
+ -->
+<!--canvas绘制矩形-->
+<canvas id="test" width="300px" height="300px">
+  <span>如果该浏览器没有canvas，则请更换升级浏览器</span>
+</canvas>
+
+<script type="text/javascript">
+    //页面加载完成的监听
+    window.onload = function () {
+        //querySelector身上有坑
+        //获取画布
+        let testNode = document.querySelector("#test");
+        if (testNode.getContext){
+            let canvas = testNode.getContext("2d");
+            //填充的矩形
+            canvas.fillStyle = "green";
+            canvas.strokeStyle = "red";
+            canvas.lineWidth = 10;
+            canvas.lineJoin = "round";
+
+            //绘制带边框的矩形
+
+            canvas.strokeRect(100,100,100,100);
+
+            canvas.fillRect(10,10,100,100);
+
+            //清除指定矩形区域
+            canvas.clearRect(100,100,100,100);
+        }
+    };
+</script>
+
+</body>
+</html>

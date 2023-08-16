@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 运算符也叫操作符: 通过运算符可以对一个或多个值进行运算并获取运算结果
+         *  如： typeof 救赎运算符  可以来获取一个值的类型,它会将该值的类型一字符串的形式返回
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * */
+        //1. 算数运算符 : + - * / %，
+        //任何值和NaN做运算都得NaN，两个字符串相加则得到拼串
+        //任何值和字符串做加法运算，都要转换为字符串，然后再运算
+        //任何值做 - *  / 运算时都会自动转换为Number，我们可以利用这一特点做隐式类型转换
+        var a = 123;
+        a = a + 123;
+        console.log(a);
+        var b = true + 1 + false;
+        console.log(b);
+        var c = null + 1 + NaN;
+        console.log(c);
+        var str = "123"+ "234";
+        console.log(str);
+        var str1 = 123 + "1";
+        console.log(str1);
+
+        var f = 9 % 3;
+        console.log(f);
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

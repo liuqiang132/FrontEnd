@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* 开启元素的绝对定位 */
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //该功能: 使div可以根据不同的方向键向不同的方向移动
+            var box1 = document.getElementById("box1");
+            document.onkeydown = function(event){
+
+                event = event || window.event;
+
+                // console.log((event.keyCode));
+
+                //判断键盘按下的是否是上，下，左，右
+                switch (event.keyCode) {
+                    case 37 :
+                    case 65 :
+                        //向左移动
+                       box1.style.left = box1.offsetLeft - 10 +"px";
+                        break;
+                    case 38:
+                    case 87:
+                        //向上移动
+                        box1.style.top = box1.offsetTop -10 + "px";
+                        break;
+                    case 39:
+                    case 68:
+                        //向右移动
+                        box1.style.left = box1.offsetLeft + 10 +"px";
+                        break;
+                    case 40: 
+                    case 83:
+                        //向下移动
+                        box1.style.top = box1.offsetTop + 10 + "px";
+                       break;
+                    default:
+                        break;
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+
+</body>
+
+</html>

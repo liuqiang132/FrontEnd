@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //构造函数
+        // function Phone(){  
+        // }
+        // Phone.name = "苹果手机";
+        // Phone.change = function(){
+        //     console.log("我可以打电话");
+        // }
+        // let p = new Phone();
+        // console.log(p.name);
+        // console.log(p.change());
+
+        //class类
+        // class Phone{
+        //     //构造函数
+        //     constructor(name,price){
+        //         this.name = name;
+        //         this.price = price;
+        //     }
+        //     change(){
+        //         console.log("我可以打电话");
+        //     }
+        // };
+
+        // let p = new Phone("小米手机",3999);
+    
+        // console.log(p.name);
+        // console.log(p.price);
+        // console.log(p.change());
+
+
+        //静态方法和属性都只是属于class类的，而不属于某个实例化对象
+        class  Person{
+            //静态变量
+           static name = "liuqiang132";
+            //静态方法
+           static change(){
+                console.log("我可以改变世界");
+            }
+        };
+        let p =  new Person();
+        console.log(p.name);
+        console.log(Person.name);
+    </script>
+    
+</body>
+</html>

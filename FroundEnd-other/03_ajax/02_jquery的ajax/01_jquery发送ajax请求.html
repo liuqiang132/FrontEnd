@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h2>jquery发送ajax请求</h2>
+<button>发送get请求</button>
+<button>发送post请求</button>
+<button>通用型方法</button>
+<script type="text/javascript">
+
+    $(function () {
+        $('button').eq(0).click(function () {
+            //发送get请求
+            $.get("http://localhost:5000/get/jquery",{a:100, b:200},function (data) {
+                console.log(data);
+            },'json');
+
+        });
+        $('button').eq(1).click(function () {
+            //发送post请求
+            $.post("http://localhost:5000/get/jquery",{a:100, b:200},function (data) {
+                console.log(data);
+
+            });
+
+        });
+    });
+</script>
+</body>
+</html>

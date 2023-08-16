@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ajax{
+            width: 200px;
+            height: 100px;
+            border: green 1px solid;
+        }
+    </style>
+</head>
+<body>
+  <button id="btn">原生js方式ajax请求</button>
+ <div id="ajax"></div>
+
+<script type="text/javascript">
+
+    const btn = document.getElementById('btn');
+    const ajax = document.getElementById('ajax');
+    btn.onclick = function () {
+        //创建xml对象
+        const  xml = new XMLHttpRequest();
+        //初始化,设置请求方法和url
+        xml.open("GET","http://localhost:8000/server/get");
+        //发送
+        xml.send();
+        xml.onreadystatechange = function () {
+            if (xml.readyState === 4){
+                if (xml.status >= 200 && xml.status <300){
+                    //成功
+                    ajax.innerHTML = xml.response;
+                }else {
+                    //失败
+                    return xml.status;
+                }
+            }
+
+
+        };
+    };
+</script>
+</body>
+</html>

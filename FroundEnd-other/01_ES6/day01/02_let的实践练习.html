@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .c1,.c2,.c3{
+            width: 100px;
+            height: 50px;
+            margin-top: 20px;
+            border: 1px solid orange;
+        }
+
+    </style>
+    <script>
+
+        //文档加载完成的监听
+        window.onload = function(){
+          let divs = document.getElementsByTagName("div");
+          //此时如果是var关键字的话，这个问题就不可以
+          for(let i = 0;i<divs.length;i++){
+              divs[i].onclick = function(){
+
+                divs[i].style.backgroundColor = "pink";
+              }
+          }; 
+
+        };
+    </script>
+</head>
+<body>
+<div class="c1"></div>
+<div class="c2"></div>
+<div class="c3"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_Promise封装AJAX请求</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //Promise封装AJAX的请求
+
+        const p = new Promise((reslove, reject) => {
+            //1.创建对象
+            const xms = new XMLHttpRequest();
+            //2.初始化
+            xms.open('GET', 'https://api.apiopen.top/getJoke');
+            //3。发送
+            xms.send();
+            //4.绑定事件，处理响应结果
+            xms.onreadystatechange = function () {
+                //判断
+                if (xms.readyState === 4) {
+                    //判断响应结果为200-299
+                    if (xms.status >= 200 && xms.status < 300) {
+                        //成功则输出
+                        reslove(xms.response);
+                    } else {
+                        //失败的输出
+                        console.error(xms.status);
+                    };
+
+                };
+            };
+
+        });
+
+        //指定回调
+        p.then(function(value){
+            //成功
+            console.log(value);
+
+        },function(err){
+            //失败
+            console.error(err);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

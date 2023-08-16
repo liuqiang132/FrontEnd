@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入外部的script文件,推荐使用，script标签一旦用于引入外部文件,内部江能再写其他内容了 -->
+    <script src="./refence/01.js"> </script>
+
+   <script>
+       alert("hello world!");
+   </script>
+</head>
+<body>
+
+    <!-- 耦合性太强，不推荐使用 -->
+    <!-- 可以将js代码编写到标签onclick属性中， -->
+    <button onclick="alert('讨厌点我干那')">点我一下</button>
+
+    <!-- 可以将js代码编写到超链接的href属性中 -->
+    <a href="javascript:alert('hello world')">点我一下</a>
+    
+</body>
+</html>

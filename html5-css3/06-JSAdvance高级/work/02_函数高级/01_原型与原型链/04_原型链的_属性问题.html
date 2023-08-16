@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+ 1.读取对象的属性时: 会自动到原型链中查找
+ 2.设置对象的属性值时: 不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值
+ 3.方法一般定义在原型中,属性一般通过构造函数定义在对象本身上
+ -->
+<script type="text/javascript">
+    function func() {
+
+    }
+    func.prototype.name = "解鲁瑶";
+    var f1 = new func();
+    console.log(f1.name);
+
+    var f2 = new func();
+    f2.name = "sss";
+    console.log(f2.name,f1.name,f2);
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

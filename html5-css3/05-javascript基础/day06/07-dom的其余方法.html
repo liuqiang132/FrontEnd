@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+
+            //第一种方式:获取body标签
+            var body = document.getElementsByTagName("body")[0];
+            //第二种方式:在document中也有一个属性body,它保存你的是body的引用,document.documentElement获取html的根标签
+            var de = document.body;
+            var html = document.documentElement;
+            //all代表页面中所有的元素
+            var all = document.all;
+            console.log(all.length);
+
+            //获取页面的cookie会话
+            var cookie = document.cookie;
+            console.log(cookie);
+
+            //根据元素额class属性值查询一组元素节点元素
+            var box1 = document.getElementsByClassName("box1");
+            console.log(box1);
+
+
+            //需要一个选择器的字符串作为参数,可以根据一个CSS选择器来查询一个元素节点对象,虽然IE8中没有getElementsByClassName,
+            //但可以根据querySelector()元素选择器获取，使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么它只会返回第一个
+            var box2 = document.querySelector(".box1 div");
+            console.log(box2.innerHTML);
+
+
+            //document.querySelectorAll()该方法和querySelector()类似，不同的是它会将符合条件的元素封装到一个数组中返回，即使符合条件的元素只有一个，它也会返回数组
+            var div = document.querySelectorAll(".box1");
+            console.log(box1.length);
+
+
+
+
+
+
+        };
+    </script>
+</head>
+
+<body>
+
+    <div class="box1">
+        <div>我是一个元素选择器</div>
+    </div>
+    <div class="box1">
+        <div>我是一个元素选择器</div>
+    </div>
+    <div class="box1">
+        <div>我是一个元素选择器</div>
+    </div>
+    <div class="box1">
+        <div>我是一个元素选择器</div>
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<!--引入react核心库-->
+<script type="text/javascript" src="../libs/react.development.js"></script>
+<!--引入react-dom用于支持react操作DOM-->
+<script type="text/javascript" src="../libs/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转换为js-->
+<script type="text/javascript" src="../libs/babel.min.js"></script>
+
+<script type="text/babel">
+    //1.创建类式组件
+    class Weather extends React.Component {
+        constructor(props) {
+            super(props);
+            //初始化状态
+            this.state = {isHot: false};
+            //解决changeWeather中this指向的问题
+            this.changeWeather = this.changeWeather.bind(this);
+        }
+
+        render() {
+            //读取状态
+            const {isHot} = this.state;
+            return <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+        }
+        //鼠标单击事件
+        changeWeather() {
+            /*
+               changeWeather放在哪里? ------Weather的原型对象上,供实例使用,由于changeWeather是作为onClick的回调，所以不是通过实例调用的
+               是直接调用的，类中文档方法默认开启了局部的严格模式,所以changeWeather中的this为undefined
+             */
+            //严重注意: 状态必须通过setState进行更新,且更新是一种合并,不是替换
+            const isHot = this.state.isHot;
+            this.setState({isHot:!isHot})
+
+        }
+    }
+    //2.渲染组件到页面上
+    ReactDOM.render(<Weather/>,document.getElementById("test"));
+</script>
+
+</body>
+</html>

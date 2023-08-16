@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+
+    <style>
+      .box{
+          /* 
+           内容区(content)，元素中的所有的子元素和文本内容都在内容区中排列
+           内容区的大小由width和 height两个属性来设置
+            width 设置内容区的宽度
+            height 设置内容区的高度 
+          */
+          width: 200px;
+          height: 200px;
+          background-color: brown;
+          /* 
+           边框(border)，边框属于盒子边缘，边框里边的属于盒子内部，出了边框都是盒子的外边距
+           边框的大小会影响到整个盒子的大小
+           要设置边框，需要至少设置三个样式: 
+                 边框的宽度：border-width
+                 边框的颜色：border-color
+                 边框的样式：border-style
+          */
+          border-width: 10px;
+          border-color: rgb(3, 146, 74);
+          border-style: solid;
+
+      }
+    </style>
+</head>
+<body>
+    <!-- 
+          盒子型，盒子模型，框模型(box model)
+             - CSS将页面中的所有元素都设置为了一个巨型的盒子
+             - 将元素设置为矩形的盒子后，对页面的布局就会变成讲不通的盒子拜访到不同的位置
+             - 每一个盒子都是由以下几个部分组成:
+                     内容区(content)
+                     内边距(padding)
+                     边框(border)
+                     外边距(margin)
+     -->
+     <div class="box">分页菜单</div>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            //获取单击响应函数
+            btn01.onclick = function(){
+
+            
+                /**
+                 * ①读取box1的宽度: box1.style.width
+                 * 
+                 * 获取元素的当前显示的样式: 元素.currentStyle.样式名
+                 * 它可以用来当前当前元素正在显示的样式，如果当前的元素没有样式，则获取它的默认值
+                 * currentStyle只有IE浏览器支持,其他浏览器都不支持
+                 * 通过currentStyle和getComputedStyle()读取到的样式都是只读的，而不能修改
+                 * 
+                 * 
+                 * 
+                 * ②在其他浏览器中可以使用: getComputedStyle()这个方法来获取元素当前的样式，这个方法时window的方法,可以直接使用
+                 * 需要两个参数:
+                 *        第一个参数: 要获取样式的元素
+                 *        第二个参数: 可以传递一个伪元素，一般都传null
+                 * 
+                 * 该方法会返回一个对象,对象中封装了当前元素对应的样式:
+                 * 可以通过对象.样式名读取样式
+                 * 如果获取的样式没有设置,则会获得真实的值,而不是默认值，比如:没有设置width,它不会获取到auto,而是一个长度
+                 * 
+                 * 
+                 * 
+                 * */
+                // alert(box1.currentStyle.width);//IE浏览器支持
+
+                alert(getComputedStyle(box1,null).backgroundColor);
+
+
+
+                function getStyle(obj,name){
+
+
+                //正常浏览器情况下的:   getComputedStyle(obj,null)[name] 
+                //支持IE8浏览器的方法: obj.currentStyle.width
+                return window.getComputedStyle ? getComputedStyle(obj,null)[name] : obj.currentStyle.width;
+
+
+
+
+                };
+                
+
+
+
+
+            };
+
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <div id="box1"></div>
+    
+</body>
+</html>

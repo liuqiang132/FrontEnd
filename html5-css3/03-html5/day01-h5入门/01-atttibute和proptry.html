@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-attr和prop</title>
+</head>
+<body>
+    <!-- 
+        1.什么是attribute，什么是property
+            html标签的预定义和自定义属性我们统称为attribute
+            js原生对象的直接属性，我们统称为property
+        2.什么是布尔值属性，什么是非布尔值属性
+            property的属性值为布尔类型的  我们统称为布尔值属性
+            property的属性值为非布尔类型的  我们统称为非布尔值属性
+
+       3.attribute和property的同步关系
+            非布尔值属性：实时同步
+            布尔值属性：
+                property永远都不会同步attribute在没有动过property的情况下attribute会同步property
+                在动过property的情况下attribute不会同步property
+       4.用户操作的是property
+       5.浏览器认的是property
+
+     -->
+    <!-- 测试checkbox复选框 -->
+    <input type="checkbox" name="checkbox" id="checkbox" checked ="true">
+    <input type="checkbox" name="checkbox" id="checkbox" checked ="false">
+    <input type="checkbox" name="checkbox" id="checkbox" checked ="checked">
+    <input type="checkbox" name="checkbox" id="checkbox" checked ="">
+    <input type="checkbox" name="checkbox" id="checkbox" checked =null>
+    <input type="checkbox" name="checkbox" id="checkbox" checked =undefined>
+    <input type="checkbox" name="checkbox" id="checkbox" checked>
+ <script src="js/jquery-1.10.1.js"></script>
+ <script type="text/javascript">
+    debugger
+    var doc = document.querySelector('input[type=checkbox]');
+ </script>   
+</body>
+</html>
